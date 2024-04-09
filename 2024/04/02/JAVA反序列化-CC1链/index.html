@@ -246,7 +246,7 @@
 	<div id="layout-post">
 		<div class="article-title">
 			
-	<a href="/2024/04/01/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" itemprop="url">
+	<a href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" itemprop="url">
 		JAVA反序列化——CC1链
 	</a>
 
@@ -263,9 +263,9 @@
 
 	更新于
 
-	<a href="/2024/04/01/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" itemprop="url">
-		<time datetime="2024-04-01T11:31:10.000Z" itemprop="dateUpdated">
-	  		2024-04-02
+	<a href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" itemprop="url">
+		<time datetime="2024-04-02T11:31:10.000Z" itemprop="dateUpdated">
+	  		2024-04-03
 	  </time>
 	</a> 
 
@@ -286,7 +286,7 @@
 			
 
 	
-    <span class="leancloud_visitors" id="/2024/04/01/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/_visitors" data-url="/2024/04/01/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" data-title="JAVA反序列化——CC1链">
+    <span class="leancloud_visitors" id="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/_visitors" data-url="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" data-title="JAVA反序列化——CC1链">
        	<i class="icon-eye"></i>
        	热度
         
@@ -298,7 +298,7 @@
 
 
 	
-    <span class="leancloud_likes" id="/2024/04/01/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/_likes" data-url="/2024/04/01/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" data-title="JAVA反序列化——CC1链" rel="unlike">
+    <span class="leancloud_likes" id="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/_likes" data-url="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" data-title="JAVA反序列化——CC1链" rel="unlike">
         <i class="icon-heart"></i>
         喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -308,7 +308,11 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<h1 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h1><h4 id="工欲善其事，必先利其器"><a href="#工欲善其事，必先利其器" class="headerlink" title="工欲善其事，必先利其器"></a>工欲善其事，必先利其器</h4><p>关于apache commons collections的依赖，我推荐直接用maven装，这样方便快捷。在你的IDEA里，新建一个项目，在构建系统里选择Maven即可。</p>
+			<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>CC1链有两种写法，我这种写法跟ysoserial里的写法不一样，另一种写法写在另一篇文章。</p>
+<p>cc1链要求java版本小于jdk8u71</p>
+<p>我这里用的JDK版本是8u66</p>
+<p>因为在高版本这条链子最后的annotationInvocationHandler类readObject之后，memberValues小版本有值，高版本是空</p>
+<h1 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h1><h4 id="工欲善其事，必先利其器"><a href="#工欲善其事，必先利其器" class="headerlink" title="工欲善其事，必先利其器"></a>工欲善其事，必先利其器</h4><p>关于apache commons collections的依赖，我推荐直接用maven装，这样方便快捷。在你的IDEA里，新建一个项目，在构建系统里选择Maven即可。</p>
 <img src="/img/JAVA反序列化-CC1链/image-20240401194123468.png" alt="image-20240401194123468" style="zoom: 70%;" />
 
 <p>找到你项目下的pom.xml文件，这是maven获取依赖的配置文件，对于CC链的依赖，我们把以下代码写入保存即可：</p>
@@ -497,6 +501,10 @@
 	<span>
 		<a id="totop-post-page">返回顶部</a>
 		
+			<a href="/2024/04/09/XYCTF2024/" title="XYCTF2024" rel="prev">
+				&laquo;上一篇
+			</a>
+		
 		
 			<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" title="java反序列化——URLDNS链" rel="next">
 				下一篇&raquo;
@@ -540,6 +548,34 @@
 							<a href="/2024/03/29/java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E2%80%94%E2%80%94URLDNS%E9%93%BE/" title="java反序列化——URLDNS链">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg" alt="java反序列化——URLDNS链"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/09/XYCTF2024/" title="XYCTF2024">
+								XYCTF2024			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 9日, 2024				
+							</p>
+							<p class="relate-post-content">
+								ezhttp打开是登录页面，先看源码，源码提示：
+1&lt;!-- 为了防止忘记密码，我把它们放在某个地方了 --&gt;
+
+第一反应是robots.txt，进去看看。
+
+得到&#x2F;l0g1n.txt，进入得到帐号密码：
+12u...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/09/XYCTF2024/" title="XYCTF2024">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/cart_cover.jpg" alt="XYCTF2024"/>
 							</a>
 						</div>
 					</li>												
@@ -744,32 +780,6 @@ referer:vidar.club
 							<a href="/2024/01/31/Hgame%202024%20week%201/" title="Hgame 2024 week 1">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/Hgame_2024/HgameCTF2024.png" alt="Hgame 2024 week 1"/>
-							</a>
-						</div>
-					</li>												
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2023/11/28/GeekChallenge%202023%20WEB%E8%B5%9B%E9%A2%98WP/" title="GeekChallenge 2023 WEB赛题目WP">
-								GeekChallenge 2023 WEB赛题目WP			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 28日, 2023				
-							</p>
-							<p class="relate-post-content">
-								by:Infernity
-EzHttp请post传参username和password进行登录
-第一步先找username和password，查看源码发现“**密码记在了不想让爬虫获取的地方!**”
-查阅资料，
-1几乎所有的搜索引擎爬...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2023/11/28/GeekChallenge%202023%20WEB%E8%B5%9B%E9%A2%98WP/" title="GeekChallenge 2023 WEB赛题目WP">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="https://pic1.zhimg.com/v2-0dda71bc9ced142bf7bb2d6adbebe4f0_r.jpg" alt="GeekChallenge 2023 WEB赛题目WP"/>
 							</a>
 						</div>
 					</li>												

